@@ -191,7 +191,7 @@ export const passions = [
   },
   {
     title: "Reading",
-    line: "Books keep the mental stack deep — fiction, non-fiction, and long-form writing between shipping features.",
+    line: "Books keep the mental stack deep — philosophy, psychology, and how money & markets actually work.",
   },
   {
     title: "Languages",
@@ -201,6 +201,34 @@ export const passions = [
     title: "3D Design",
     line: "Hands-on 3D design exposure — creative experiments live on Instagram alongside the engineering work.",
   },
+];
+
+/**
+ * Reading shelf — no status, just the collection.
+ * Edit freely in this file.
+ */
+export const books = [
+  { title: "Bhagavad Gita", author: "Traditional" },
+  { title: "The Personal MBA", author: "Josh Kaufman" },
+  { title: "The Psychology of Money", author: "Morgan Housel" },
+  { title: "Ikigai", author: "García & Miralles" },
+  { title: "Freakonomics", author: "Levitt & Dubner" },
+  { title: "Basics of Economics", author: "Introductory" },
+];
+
+/** Soft ambient words (JP / FR / music) scattered on the Beyond section */
+export const ambientWords = [
+  { text: "音楽", x: "8%", y: "12%", rotate: -8 },
+  { text: "lire", x: "88%", y: "18%", rotate: 6 },
+  { text: "本", x: "14%", y: "72%", rotate: 4 },
+  { text: "musique", x: "78%", y: "68%", rotate: -5 },
+  { text: "読む", x: "92%", y: "42%", rotate: 10 },
+  { text: "livre", x: "6%", y: "48%", rotate: -3 },
+  { text: "♪", x: "22%", y: "28%", rotate: 12 },
+  { text: "♫", x: "70%", y: "32%", rotate: -14 },
+  { text: "♬", x: "48%", y: "8%", rotate: 5 },
+  { text: "apprendre", x: "55%", y: "88%", rotate: -6 },
+  { text: "語", x: "35%", y: "90%", rotate: 8 },
 ];
 
 export const marqueeWords = [
