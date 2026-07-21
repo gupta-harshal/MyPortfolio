@@ -34,6 +34,7 @@ export const socials = {
   codechef: "https://www.codechef.com/users/gupta_harshal",
   medium: "https://medium.com/@gupta_harshal",
   substack: "https://substack.com/@guptaharshal",
+  duolingo: "https://www.duolingo.com/profile/HarshalGup2",
 };
 
 export const stats = [

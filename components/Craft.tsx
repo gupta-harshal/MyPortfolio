@@ -51,6 +51,16 @@ export default function Craft() {
                     View on Instagram →
                   </a>
                 )}
+                {p.title === "Languages" && socials.duolingo && (
+                  <a
+                    href={socials.duolingo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline mt-4 w-fit font-mono text-[10px] uppercase tracking-[0.2em] text-amber-brand"
+                  >
+                    View on Duolingo →
+                  </a>
+                )}
               </Reveal>
             ))}
           </div>

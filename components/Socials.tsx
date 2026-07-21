@@ -8,7 +8,7 @@ import {
   FaInstagram,
   FaCode,
 } from "react-icons/fa6";
-import { SiLeetcode, SiCodeforces, SiCodechef, SiSubstack } from "react-icons/si";
+import { SiLeetcode, SiCodeforces, SiCodechef, SiSubstack, SiDuolingo } from "react-icons/si";
 import type { IconType } from "react-icons";
 import { socials } from "@/lib/data";
 
@@ -23,6 +23,7 @@ const ALL: SocialItem[] = [
   { key: "leetcode", href: socials.leetcode, label: "LeetCode", Icon: SiLeetcode },
   { key: "codeforces", href: socials.codeforces, label: "Codeforces", Icon: SiCodeforces },
   { key: "codechef", href: socials.codechef, label: "CodeChef", Icon: SiCodechef },
+  { key: "duolingo", href: socials.duolingo, label: "Duolingo", Icon: SiDuolingo },
   { key: "medium", href: socials.medium, label: "Medium", Icon: FaMedium },
   { key: "substack", href: socials.substack, label: "Substack", Icon: SiSubstack },
 ];
