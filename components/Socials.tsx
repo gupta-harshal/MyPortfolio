@@ -29,17 +29,21 @@ const ALL: SocialItem[] = [
 
 export default function Socials({
   size = "md",
+  orientation = "horizontal",
   className = "",
 }: {
   size?: "sm" | "md" | "lg";
+  orientation?: "horizontal" | "vertical";
   className?: string;
 }) {
   const items = ALL.filter((s) => s.href && s.href.trim().length > 0);
   const dim =
     size === "lg" ? "h-12 w-12 text-xl" : size === "sm" ? "h-9 w-9 text-sm" : "h-11 w-11 text-lg";
+  const layout =
+    orientation === "vertical" ? "flex-col" : "flex-wrap items-center";
 
   return (
-    <div className={`flex flex-wrap items-center gap-3 ${className}`}>
+    <div className={`flex ${layout} gap-3 ${className}`}>
       {items.map(({ key, href, label, Icon }) => (
         <a
           key={key}

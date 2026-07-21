@@ -6,20 +6,11 @@ import { profile } from "@/lib/data";
 import SectionHeading from "./SectionHeading";
 import Socials from "./Socials";
 
-/**
- * ── OPTIONAL: enable one-click messages without a backend ──
- * 1. Create a free form at https://formspree.io
- * 2. Paste your endpoint below, e.g.
- *    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xxxxxxx";
- * Leave it "" and the form gracefully falls back to opening the
- * visitor's email client addressed to you.
- */
-const FORMSPREE_ENDPOINT = "";
-
 type Status = "idle" | "sending" | "sent" | "error";
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -28,34 +19,37 @@ export default function Contact() {
     const name = String(data.get("name") || "");
     const email = String(data.get("email") || "");
     const message = String(data.get("message") || "");
+    const company = String(data.get("company") || ""); // honeypot
 
-    if (FORMSPREE_ENDPOINT) {
-      try {
-        setStatus("sending");
-        const res = await fetch(FORMSPREE_ENDPOINT, {
-          method: "POST",
-          headers: { Accept: "application/json" },
-          body: data,
-        });
-        if (res.ok) {
-          setStatus("sent");
-          form.reset();
-        } else {
-          setStatus("error");
-        }
-      } catch {
-        setStatus("error");
+    setStatus("sending");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message, company }),
+      });
+
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+        return;
       }
-      return;
-    }
 
-    // Fallback: open the visitor's mail client, pre-filled.
-    const subject = encodeURIComponent(`Portfolio · Hello from ${name || "someone"}`);
-    const body = encodeURIComponent(
-      `${message}\n\n— ${name}${email ? ` (${email})` : ""}`
-    );
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-    setStatus("sent");
+      // Server not configured / failed → graceful mailto fallback.
+      const subject = encodeURIComponent(
+        `Portfolio · Hello from ${name || "someone"}`
+      );
+      const body = encodeURIComponent(
+        `${message}\n\n— ${name}${email ? ` (${email})` : ""}`
+      );
+      window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+      setErrorMsg("Network error. Please email me directly.");
+    }
   }
 
   return (
@@ -89,6 +83,16 @@ export default function Contact() {
             onSubmit={handleSubmit}
             className="glass flex flex-col gap-4 rounded-3xl p-7 md:p-9"
           >
+            {/* Honeypot — hidden from humans, catches bots */}
+            <input
+              type="text"
+              name="company"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+
             <Field label="Name" name="name" type="text" placeholder="Your name" />
             <Field
               label="Email"
@@ -124,12 +128,12 @@ export default function Contact() {
 
             {status === "sent" && (
               <p className="text-center font-mono text-xs text-sage">
-                Message ready — thanks for reaching out!
+                Message sent — thanks for reaching out!
               </p>
             )}
             {status === "error" && (
               <p className="text-center font-mono text-xs text-rose-brand">
-                Something went wrong. Please email me directly.
+                {errorMsg || "Something went wrong. Please email me directly."}
               </p>
             )}
           </form>

@@ -12,7 +12,7 @@ export const profile = {
   role: "Software Engineer · ML & Systems",
   tagline: "Shipping ML systems, Web3 apps, and production-grade software.",
   location: "IIIT Ranchi, India",
-  email: "harshalgupta10@gmail.com",
+  email: "guptharshal.hg@gmail.com",
   resumeUrl: "",
   blurb:
     "B.Tech in Computer Science & Engineering (Data Science & AI) at IIIT Ranchi. I build RAG pipelines, decentralized apps, and full-stack products — with Docker, cloud, and competitive programming as the foundation.",
@@ -23,16 +23,16 @@ export const profile = {
  * Social & profile links. Leave a value as "" to hide that icon.
  */
 export const socials = {
-  github: "https://github.com/",
+  github: "https://github.com/gupta-harshal",
   linkedin: "https://www.linkedin.com/in/harshalgupta10/",
-  twitter: "https://twitter.com/",
-  instagram: "https://instagram.com/", // 3D design / creative work
-  codolio: "https://codolio.com/profile/harshalgupta10", // ← fix username if different
-  leetcode: "https://leetcode.com/",
-  codeforces: "https://codeforces.com/",
-  codechef: "https://www.codechef.com/",
-  medium: "https://medium.com/",
-  substack: "https://substack.com/",
+  twitter: "https://twitter.com/gupta_harshall",
+  instagram: "https://instagram.com/gupta_harshall",
+  codolio: "https://codolio.com/profile/gupta_harshal",
+  leetcode: "https://leetcode.com/gupta_harshal",
+  codeforces: "https://codeforces.com/profile/gupta_harshal",
+  codechef: "https://www.codechef.com/users/gupta_harshal",
+  medium: "https://medium.com/@gupta_harshal",
+  substack: "https://substack.com/@guptaharshal",
 };
 
 export const stats = [
@@ -133,21 +133,12 @@ export const experience = [
  */
 export const projects = [
   {
-    title: "Cross-Cultural Meme Detection",
-    tags: ["NLP", "Computer Vision", "Multimodal", "ML"],
-    description:
-      "Multimodal system combining NLP and image processing to detect nuanced misogynistic content across Indian, Chinese, and English cultural contexts.",
-    github: "",
-    live: "",
-    accent: "rose",
-  },
-  {
     title: "Personalized Language Learning Platform",
     tags: ["SM-2", "Full-Stack", "Spaced Repetition"],
     description:
       "Language-learning platform built from scratch with the SuperMemo-2 (SM-2) algorithm — dynamically computing optimal review intervals from memory-decay curves.",
-    github: "",
-    live: "",
+    github: "https://github.com/gupta-harshal/LanguageLearning",
+    live: "https://language-learning-g1md85x5g-harshal-guptas-projects.vercel.app/",
     accent: "amber",
   },
   {
@@ -155,8 +146,8 @@ export const projects = [
     tags: ["RAG", "LLM", "Vector Embeddings"],
     description:
       "Role-based hospital / medical management platform with an LLM chatbot powered by Gale Encyclopedia of Medicine embeddings. 2nd Runner-Up at BITS Pilani Postman Hackathon.",
-    github: "",
-    live: "",
+    github: "https://github.com/InternLay-HG/SMHackers",
+    live: "https://sm-hackers.vercel.app/",
     accent: "sage",
   },
   {
@@ -164,7 +155,7 @@ export const projects = [
     tags: ["Full-Stack", "Real-time", "FinTech"],
     description:
       "Stock exchange application focused on trading flows, market data handling, and a clean full-stack architecture for simulated / live market interactions.",
-    github: "",
+    github: "https://github.com/gupta-harshal/exchange-platform",
     live: "",
     accent: "amber",
   },
@@ -173,7 +164,16 @@ export const projects = [
     tags: ["Solana", "Web3", "RPC", "dApp"],
     description:
       "Decentralized airdrop application on Solana — wallet connect, claim flows, and RPC-node based chain reads for token distribution.",
-    github: "",
+    github: "https://github.com/gupta-harshal/dApp",
+    live: "",
+    accent: "rose",
+  },
+  {
+    title: "Cross-Cultural Misogyny Detection",
+    tags: ["NLP", "Text Classification", "ML"],
+    description:
+      "NLP system that detects nuanced misogynistic content in text across Indian, Chinese, and English cultural contexts using language modelling and classification.",
+    github: "https://github.com/gupta-harshal/Cross-Cultural-Meme-Detection",
     live: "",
     accent: "rose",
   },
