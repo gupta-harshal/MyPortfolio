@@ -5,6 +5,7 @@ import {
   FaLinkedinIn,
   FaXTwitter,
   FaMedium,
+  FaInstagram,
 } from "react-icons/fa6";
 import { SiLeetcode, SiCodeforces, SiCodechef, SiSubstack } from "react-icons/si";
 import type { IconType } from "react-icons";
@@ -16,6 +17,7 @@ const ALL: SocialItem[] = [
   { key: "github", href: socials.github, label: "GitHub", Icon: FaGithub },
   { key: "linkedin", href: socials.linkedin, label: "LinkedIn", Icon: FaLinkedinIn },
   { key: "twitter", href: socials.twitter, label: "Twitter / X", Icon: FaXTwitter },
+  { key: "instagram", href: socials.instagram, label: "Instagram", Icon: FaInstagram },
   { key: "leetcode", href: socials.leetcode, label: "LeetCode", Icon: SiLeetcode },
   { key: "codeforces", href: socials.codeforces, label: "Codeforces", Icon: SiCodeforces },
   { key: "codechef", href: socials.codechef, label: "CodeChef", Icon: SiCodechef },

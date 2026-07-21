@@ -1,21 +1,21 @@
 /**
  * ─────────────────────────────────────────────────────────────
  *  EDIT THIS FILE to update your portfolio content & links.
- *  Everything the site shows lives here so you never have to
- *  dig through components. Add project links whenever you want.
+ *  Paste GitHub / live URLs on each project when ready.
+ *  Leave `live: ""` to hide the Live button (GitHub still shows).
  * ─────────────────────────────────────────────────────────────
  */
 
 export const profile = {
   name: "Harshal Gupta",
   firstName: "Harshal",
-  role: "ML & Software Engineer",
-  tagline: "Engineer by logic, artist by soul.",
+  role: "Software Engineer · ML & Systems",
+  tagline: "Shipping ML systems, Web3 apps, and production-grade software.",
   location: "IIIT Ranchi, India",
-  email: "harshalgupta10@gmail.com", // ← change if you prefer another inbox
-  resumeUrl: "", // ← optional: link to a hosted PDF resume
+  email: "harshalgupta10@gmail.com",
+  resumeUrl: "",
   blurb:
-    "B.Tech in Computer Science & Engineering (Data Science & AI) at IIIT Ranchi. I build production-grade ML systems, chase clean optimisations, and — when the terminal sleeps — I chase melodies and metaphors.",
+    "B.Tech in Computer Science & Engineering (Data Science & AI) at IIIT Ranchi. I build RAG pipelines, decentralized apps, and full-stack products — with Docker, cloud, and competitive programming as the foundation.",
   cgpa: "8.05",
 };
 
@@ -26,6 +26,7 @@ export const socials = {
   github: "https://github.com/",
   linkedin: "https://www.linkedin.com/in/harshalgupta10/",
   twitter: "https://twitter.com/",
+  instagram: "https://instagram.com/", // 3D design / creative work
   leetcode: "https://leetcode.com/",
   codeforces: "https://codeforces.com/",
   codechef: "https://www.codechef.com/",
@@ -33,9 +34,6 @@ export const socials = {
   substack: "https://substack.com/",
 };
 
-/**
- * Competitive programming & achievement stats (Hero + Achievements).
- */
 export const stats = [
   { value: "1,400+", label: "Problems solved" },
   { value: "Specialist", label: "Codeforces" },
@@ -43,24 +41,61 @@ export const stats = [
   { value: "3★", label: "CodeChef" },
 ];
 
+export const techStack = [
+  {
+    group: "Languages",
+    items: ["Python", "TypeScript", "JavaScript", "C++", "Solidity"],
+  },
+  {
+    group: "ML & AI",
+    items: ["PyTorch", "NLP", "Computer Vision", "RAG", "LangChain", "Gemini"],
+  },
+  {
+    group: "Backend & Infra",
+    items: ["Node.js", "Docker", "Kafka", "Redis", "GCP", "PostgreSQL"],
+  },
+  {
+    group: "Web3 & Frontend",
+    items: ["Ethereum", "Smart Contracts", "React", "Next.js", "Tailwind"],
+  },
+];
+
 export const achievements = [
   {
     title: "2nd Runner-Up — Postman Hackathon",
     org: "BITS Pilani",
     detail:
-      "Architected a role-based Medical Management system with an LLM chatbot using vector embeddings from the Gale Encyclopedia of Medicine.",
+      "Built a role-based hospital management system with an LLM chatbot using vector embeddings from the Gale Encyclopedia of Medicine.",
   },
   {
     title: "Runner-Up — InternLay Hackathon",
     org: "IIIT Ranchi",
     detail:
-      "Designed a workflow-automation system with Kafka and Redis to handle asynchronous, multi-tenant execution queues.",
+      "Designed a workflow-automation system with Kafka and Redis for asynchronous, multi-tenant execution queues.",
+  },
+  {
+    title: "Contributor — GirlScript Summer of Code",
+    org: "GSSoC",
+    detail:
+      "Open-source contributor during GSSoC — shipping features, reviews, and collaboration across community projects.",
+  },
+  {
+    title: "Partnership Manager · Co-Lead",
+    org: "GDG Ranchi",
+    detail:
+      "Co-led partnerships for Google Developer Group Ranchi — community growth, event collaborations, and developer outreach.",
   },
   {
     title: "Codeforces Specialist · LeetCode Knight · CodeChef 3★",
     org: "Competitive Programming",
     detail:
-      "1,400+ problems solved across platforms — deep intuition for deterministic optimisation and algorithmic design.",
+      "1,400+ problems solved — deep intuition for algorithms, optimisation, and system design under pressure.",
+  },
+  {
+    title: "1,800+ Day Streak — Duolingo",
+    org: "Japanese & French",
+    detail:
+      "Consistent daily practice learning Japanese and French — discipline that carries into engineering work.",
   },
 ];
 
@@ -73,68 +108,79 @@ export const experience = [
       "Built enterprise-grade Retrieval-Augmented Generation (RAG) systems for US-based clients.",
     points: [
       "Designed automated web crawlers and parsed unstructured data into semantic search pipelines.",
-      "Led deployment of the systems on Google Cloud Platform (GCP).",
+      "Led deployment on Google Cloud Platform (GCP) with containerised workflows using Docker.",
       "Reduced LLM query costs by 50% by migrating high-volume workloads to the Gemini Batch API.",
+    ],
+  },
+  {
+    role: "Partnership Manager · Co-Lead",
+    company: "GDG Ranchi",
+    period: "Community",
+    summary:
+      "Co-led partnerships and community initiatives for Google Developer Group Ranchi.",
+    points: [
+      "Drove partner collaborations and developer-community outreach for local tech events.",
+      "Supported workshops and meetups connecting students with industry practitioners.",
     ],
   },
 ];
 
 /**
- * PROJECTS — add or edit freely.
- * Set `github` and/or `live` links whenever they're ready. Empty
- * strings simply hide that button, so it's safe to ship without them.
+ * PROJECTS — ordered as requested.
+ * Fill `github` (and optionally `live`) when ready.
+ * Empty `live` hides the Live button; empty `github` hides Code.
  */
 export const projects = [
   {
-    title: "Personalized Language Learning Platform",
-    tags: ["Spaced Repetition", "SM-2", "Full-Stack"],
-    description:
-      "Building a language-learning platform from scratch, implementing the SuperMemo-2 (SM-2) algorithm to dynamically compute optimal review intervals from memory-decay curves.",
-    github: "",
-    live: "",
-    accent: "amber",
-  },
-  {
     title: "Cross-Cultural Meme Detection",
-    tags: ["NLP", "Computer Vision", "Multimodal"],
+    tags: ["NLP", "Computer Vision", "Multimodal", "ML"],
     description:
-      "A multimodal system combining NLP and image processing to identify nuanced misogynistic content across Indian, Chinese, and English cultural contexts.",
+      "Multimodal system combining NLP and image processing to detect nuanced misogynistic content across Indian, Chinese, and English cultural contexts.",
     github: "",
     live: "",
     accent: "rose",
   },
   {
-    title: "A Tale of Two UNets — Virtual Try-On",
-    tags: ["Generative AI", "Diffusion", "Research"],
+    title: "Personalized Language Learning Platform",
+    tags: ["SM-2", "Full-Stack", "Spaced Repetition"],
     description:
-      "Reproduced the computer-vision architecture from the paper “A Tale of Two UNets,” exploring latent-space manipulation and geometric warping for virtual try-on.",
+      "Language-learning platform built from scratch with the SuperMemo-2 (SM-2) algorithm — dynamically computing optimal review intervals from memory-decay curves.",
+    github: "",
+    live: "",
+    accent: "amber",
+  },
+  {
+    title: "Hospital Management System + LLM Chatbot",
+    tags: ["RAG", "LLM", "Vector Embeddings"],
+    description:
+      "Role-based hospital / medical management platform with an LLM chatbot powered by Gale Encyclopedia of Medicine embeddings. 2nd Runner-Up at BITS Pilani Postman Hackathon.",
     github: "",
     live: "",
     accent: "sage",
   },
   {
-    title: "Medical Management System + LLM Chatbot",
-    tags: ["RAG", "Vector DB", "LLM"],
+    title: "Stock Exchange Platform",
+    tags: ["Full-Stack", "Real-time", "FinTech"],
     description:
-      "A role-based medical management platform with an LLM chatbot powered by vector embeddings from the Gale Encyclopedia of Medicine. Built at the BITS Pilani Postman Hackathon.",
+      "Stock exchange application focused on trading flows, market data handling, and a clean full-stack architecture for simulated / live market interactions.",
     github: "",
     live: "",
     accent: "amber",
   },
   {
-    title: "Distributed Workflow Automation Engine",
-    tags: ["Kafka", "Redis", "Distributed Systems"],
+    title: "Web3 Airdrop dApp",
+    tags: ["Web3", "Solidity", "Ethereum", "dApp"],
     description:
-      "A workflow-automation system using Kafka and Redis to efficiently handle asynchronous, multi-tenant execution queues at scale.",
+      "Decentralized airdrop application built on Web3 — smart-contract based token distribution with a frontend for wallet connect and claim flows.",
     github: "",
     live: "",
     accent: "rose",
   },
   {
-    title: "Enterprise RAG Pipeline",
-    tags: ["RAG", "GCP", "Semantic Search"],
+    title: "Distributed Workflow Automation Engine",
+    tags: ["Kafka", "Redis", "Docker", "Distributed Systems"],
     description:
-      "Automated crawlers, unstructured-data parsing, and semantic search pipelines deployed on GCP — with a 50% cut in LLM query costs via the Gemini Batch API.",
+      "Workflow-automation system using Kafka and Redis to handle asynchronous, multi-tenant execution queues at scale. Runner-Up at IIIT Ranchi InternLay.",
     github: "",
     live: "",
     accent: "sage",
@@ -142,39 +188,41 @@ export const projects = [
 ];
 
 /**
- * The artist side — your passions beyond code.
+ * Beyond engineering — still relevant, tech portfolio first.
  */
 export const passions = [
   {
     title: "Guitar",
-    line: "Chords over code. I play, and I've performed with many teams and on many stages.",
-  },
-  {
-    title: "Poetry",
-    line: "Compressing feeling into fewer words — the most elegant algorithm I know.",
-  },
-  {
-    title: "Music",
-    line: "The soundtrack to every debugging night and every quiet morning.",
+    line: "Electric and acoustic — I've performed with many teams and on many stages. Drag the 3D guitar below.",
   },
   {
     title: "Reading",
-    line: "Books are my open tabs that never crash — worlds loaded one page at a time.",
+    line: "Books keep the mental stack deep — fiction, non-fiction, and long-form writing between shipping features.",
+  },
+  {
+    title: "Languages",
+    line: "1,800+ day Duolingo streak learning Japanese and French — consistency as a craft.",
+  },
+  {
+    title: "3D Design",
+    line: "Hands-on 3D design exposure — creative experiments live on Instagram alongside the engineering work.",
   },
 ];
 
-/**
- * A rotating marquee of words that describe you (Hero band).
- */
 export const marqueeWords = [
   "Machine Learning",
-  "Poetry",
-  "Guitar",
-  "Competitive Programming",
+  "Docker",
+  "Web3",
   "RAG Systems",
-  "Music",
-  "Generative AI",
-  "Reading",
-  "Distributed Systems",
-  "Art",
+  "Competitive Programming",
+  "GCP",
+  "Guitar",
+  "Kafka",
+  "React",
+  "Solidity",
+  "GSSoC",
+  "GDG Ranchi",
+  "Japanese",
+  "French",
+  "3D Design",
 ];

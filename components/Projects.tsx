@@ -60,30 +60,32 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {(p.github || p.live) && (
-                  <div className="mt-6 flex items-center gap-5 border-t border-amber-brand/10 pt-5">
-                    {p.github && (
-                      <a
-                        href={p.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="link-underline flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-parchment-200 hover:text-amber-brand"
-                      >
-                        <FaGithub /> Code
-                      </a>
-                    )}
-                    {p.live && (
-                      <a
-                        href={p.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="link-underline flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-parchment-200 hover:text-amber-brand"
-                      >
-                        <FaArrowUpRightFromSquare /> Live
-                      </a>
-                    )}
-                  </div>
-                )}
+                <div className="mt-6 flex items-center gap-5 border-t border-amber-brand/10 pt-5">
+                  {p.github ? (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-underline flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-parchment-200 hover:text-amber-brand"
+                    >
+                      <FaGithub /> GitHub
+                    </a>
+                  ) : (
+                    <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-parchment-300/35">
+                      GitHub link → lib/data.ts
+                    </span>
+                  )}
+                  {p.live ? (
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-underline flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-parchment-200 hover:text-amber-brand"
+                    >
+                      <FaArrowUpRightFromSquare /> Live
+                    </a>
+                  ) : null}
+                </div>
               </Reveal>
             );
           })}
@@ -91,7 +93,9 @@ export default function Projects() {
 
         <Reveal className="mt-10 text-center">
           <p className="font-mono text-xs text-parchment-300/50">
-            More on the way — links are added as each project ships.
+            Add a GitHub URL (and Live if you have one) in{" "}
+            <span className="text-amber-brand/70">lib/data.ts</span> — Live stays
+            hidden when empty.
           </p>
         </Reveal>
       </div>

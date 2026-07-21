@@ -12,7 +12,6 @@ export default function Experience() {
           title="Where theory met production."
         />
 
-        {/* Experience timeline */}
         <div className="relative border-l border-amber-brand/20 pl-8 md:pl-10">
           {experience.map((job, i) => (
             <Reveal key={i} delay={i * 0.1} className="relative mb-14 last:mb-0">
@@ -44,12 +43,11 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* Achievements */}
-        <div className="mt-20 grid gap-5 md:grid-cols-3">
+        <div className="mt-20 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {achievements.map((a, i) => (
             <Reveal
               key={i}
-              delay={i * 0.1}
+              delay={(i % 3) * 0.08}
               className="glass card-hover flex h-full flex-col rounded-3xl p-7"
             >
               <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-amber-brand/70">

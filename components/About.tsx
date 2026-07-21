@@ -1,4 +1,4 @@
-import { profile } from "@/lib/data";
+import { profile, techStack } from "@/lib/data";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
@@ -6,55 +6,59 @@ export default function About() {
   return (
     <section id="about" className="relative px-6 py-24 md:px-10 md:py-36">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading index="01" kicker="About" title="Two hemispheres, one mind." />
+        <SectionHeading
+          index="01"
+          kicker="About"
+          title="Engineer first. Curious always."
+        />
 
-        <div className="grid gap-6 md:grid-cols-2">
-          <Reveal className="glass card-hover rounded-3xl p-8 md:p-10">
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-amber-brand/15 font-mono text-amber-brand">
-                {"</>"}
-              </span>
-              <h3 className="font-display text-2xl text-parchment-100">
-                The Engineer
-              </h3>
-            </div>
-            <p className="mt-5 leading-relaxed text-parchment-300/75">
-              I&apos;m fascinated by computational efficiency, optimisation, and the
-              intersection of data with intelligence. Competitive programming built
-              my intuition for deterministic optimisation; my specialisation in
-              Data Science &amp; AI pushed me toward the probabilistic frontier —
-              RAG systems, generative models, and production ML at scale.
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
+          <Reveal>
+            <p className="text-lg leading-relaxed text-parchment-300/80 md:text-xl">
+              I&apos;m fascinated by computational efficiency, optimisation, and
+              the intersection of data with intelligence. Competitive programming
+              built my intuition for deterministic systems; Data Science &amp; AI
+              pushed me into probabilistic ML — RAG, multimodal models, and
+              production pipelines.
             </p>
-            <ul className="mt-6 space-y-2 font-mono text-sm text-parchment-300/70">
-              <li>› B.Tech CSE (Data Science &amp; AI), IIIT Ranchi</li>
+            <p className="mt-5 leading-relaxed text-parchment-300/70">
+              I&apos;ve shipped enterprise RAG on GCP, built Web3 airdrop dApps,
+              containerised services with Docker, and moved fast in high-pressure
+              hackathons. Outside the IDE: guitar on stage, books on the shelf,
+              Japanese &amp; French on a long Duolingo streak, and a bit of 3D
+              design for fun.
+            </p>
+            <ul className="mt-8 grid gap-2 font-mono text-sm text-parchment-300/70 sm:grid-cols-2">
+              <li>› B.Tech CSE (DS &amp; AI), IIIT Ranchi</li>
               <li>› CGPA {profile.cgpa} / 10</li>
-              <li>› 1,400+ problems · Codeforces Specialist</li>
+              <li>› 1,400+ problems · CF Specialist</li>
+              <li>› GSSoC · GDG Ranchi Co-Lead</li>
             </ul>
           </Reveal>
 
-          <Reveal
-            delay={0.12}
-            className="glass card-hover paper-lines rounded-3xl p-8 md:p-10"
-          >
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-rose-brand/15 font-mono text-rose-brand">
-                ♪
-              </span>
-              <h3 className="font-display text-2xl text-parchment-100">
-                The Artist
-              </h3>
+          <Reveal delay={0.1} className="glass rounded-3xl p-7 md:p-8">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-amber-brand/70">
+              Tech stack
+            </p>
+            <div className="mt-5 space-y-5">
+              {techStack.map((group) => (
+                <div key={group.group}>
+                  <h4 className="font-display text-lg text-parchment-100">
+                    {group.group}
+                  </h4>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-amber-brand/15 bg-ink-950/50 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-parchment-300/75"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-            <p className="mt-5 leading-relaxed text-parchment-300/75">
-              When the terminal sleeps, I pick up the guitar. I write poetry, get
-              lost in books, and live inside music. I&apos;ve performed with many
-              teams and on many stages. To me, elegant code and a well-turned verse
-              are the same craft — structure, rhythm, and the search for something
-              that resonates.
-            </p>
-            <p className="mt-6 font-display text-lg italic text-parchment-200/80">
-              &ldquo;I compress feeling into fewer words — the most elegant
-              algorithm I know.&rdquo;
-            </p>
           </Reveal>
         </div>
       </div>
