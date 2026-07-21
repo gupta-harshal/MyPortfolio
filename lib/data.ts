@@ -13,7 +13,8 @@ export const profile = {
   tagline: "Shipping ML systems, Web3 apps, and production-grade software.",
   location: "IIIT Ranchi, India",
   email: "guptharshal.hg@gmail.com",
-  resumeUrl: "",
+  // Put your PDF at public/resume.pdf — then this link works as a download
+  resumeUrl: "/resume.pdf",
   blurb:
     "B.Tech in Computer Science & Engineering (Data Science & AI) at IIIT Ranchi. I build RAG pipelines, decentralized apps, and full-stack products — with Docker, cloud, and competitive programming as the foundation.",
   cgpa: "8.05",

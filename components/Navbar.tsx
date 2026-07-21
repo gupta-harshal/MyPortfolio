@@ -61,12 +61,24 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden rounded-full border border-amber-brand/40 px-5 py-2 font-mono text-xs uppercase tracking-[0.2em] text-amber-brand transition-all hover:bg-amber-brand hover:text-ink-950 md:inline-block"
-        >
-          Say hi
-        </a>
+        {profile.resumeUrl ? (
+          <a
+            href={profile.resumeUrl}
+            download="Harshal_Gupta_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden rounded-full border border-amber-brand/40 px-5 py-2 font-mono text-xs uppercase tracking-[0.2em] text-amber-brand transition-all hover:bg-amber-brand hover:text-ink-950 md:inline-block"
+          >
+            Resume
+          </a>
+        ) : (
+          <a
+            href="#contact"
+            className="hidden rounded-full border border-amber-brand/40 px-5 py-2 font-mono text-xs uppercase tracking-[0.2em] text-amber-brand transition-all hover:bg-amber-brand hover:text-ink-950 md:inline-block"
+          >
+            Say hi
+          </a>
+        )}
 
         <button
           aria-label="Toggle menu"
@@ -115,6 +127,20 @@ export default function Navbar() {
                   </a>
                 </li>
               ))}
+              {profile.resumeUrl ? (
+                <li>
+                  <a
+                    href={profile.resumeUrl}
+                    download="Harshal_Gupta_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setOpen(false)}
+                    className="block rounded-2xl px-4 py-3 font-mono text-sm uppercase tracking-[0.2em] text-amber-brand transition-colors hover:bg-ink-800"
+                  >
+                    Download resume
+                  </a>
+                </li>
+              ) : null}
             </ul>
           </motion.div>
         )}

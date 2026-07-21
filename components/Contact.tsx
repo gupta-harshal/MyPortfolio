@@ -71,6 +71,18 @@ export default function Contact() {
               {profile.email}
             </a>
 
+            {profile.resumeUrl ? (
+              <a
+                href={profile.resumeUrl}
+                download="Harshal_Gupta_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-amber-brand/40 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.2em] text-amber-brand transition-all hover:bg-amber-brand hover:text-ink-950"
+              >
+                Download resume ↓
+              </a>
+            ) : null}
+
             <div className="mt-10">
               <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.3em] text-parchment-300/50">
                 Find me across the web

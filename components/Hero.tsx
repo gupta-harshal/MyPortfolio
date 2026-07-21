@@ -104,6 +104,17 @@ export default function Hero() {
                 →
               </span>
             </a>
+            {profile.resumeUrl ? (
+              <a
+                href={profile.resumeUrl}
+                download="Harshal_Gupta_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-amber-brand/40 px-7 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-amber-brand transition-all hover:bg-amber-brand hover:text-ink-950"
+              >
+                Download resume
+              </a>
+            ) : null}
             <a
               href="#contact"
               className="rounded-full border border-parchment-300/25 px-7 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-parchment-100 transition-all hover:border-amber-brand hover:text-amber-brand"
