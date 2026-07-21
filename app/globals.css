@@ -80,6 +80,38 @@ body {
   100% { transform: translate(0, 0); }
 }
 
+/* Site-wide rising floaters (notes, kanji, etc.) */
+.float-rise {
+  bottom: -2rem;
+  animation-name: floatRise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+.float-rise:hover {
+  color: rgba(245, 239, 224, 0.95) !important;
+  text-shadow: 0 0 28px rgba(224, 164, 88, 0.75) !important;
+  z-index: 2;
+}
+
+@keyframes floatRise {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: var(--floater-opacity, 0.5);
+  }
+  88% {
+    opacity: var(--floater-opacity, 0.5);
+  }
+  100% {
+    transform: translate3d(var(--sway, 20px), -110vh, 0) rotate(18deg);
+    opacity: 0;
+  }
+}
+
 /* Thin ruled-paper lines for the "poet's notebook" feel */
 .paper-lines {
   background-image: linear-gradient(

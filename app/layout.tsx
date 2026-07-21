@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/lib/data";
+import FloatingAmbience from "@/components/FloatingAmbience";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function RootLayout({
       <body
         className={`${fraunces.variable} ${inter.variable} ${mono.variable} font-sans grain`}
       >
+        <FloatingAmbience />
         {children}
       </body>
     </html>

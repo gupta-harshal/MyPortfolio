@@ -7,7 +7,7 @@ import { CLICK_RIFFS, playArpeggio, playPianoNote } from "@/lib/audio";
 type Floater = {
   id: number;
   glyph: string;
-  x: number;
+  left: number;
   size: number;
   duration: number;
   delay: number;
@@ -44,19 +44,16 @@ function makeFloater(id: number): Floater {
   return {
     id,
     glyph,
-    x: 3 + Math.random() * 94,
-    size: long ? 12 + Math.random() * 8 : 18 + Math.random() * 24,
-    duration: 14 + Math.random() * 18,
-    delay: Math.random() * 14,
-    sway: (Math.random() - 0.5) * 100,
-    opacity: 0.32 + Math.random() * 0.38,
+    left: 3 + Math.random() * 94,
+    size: long ? 12 + Math.random() * 10 : 18 + Math.random() * 26,
+    duration: 12 + Math.random() * 14,
+    delay: Math.random() * 12,
+    sway: (Math.random() - 0.5) * 120,
+    opacity: 0.4 + Math.random() * 0.35,
   };
 }
 
-/**
- * Site-wide rising field of notes + Japanese + French.
- * Fixed to the viewport so they float over every section.
- */
+/** Site-wide rising notes + kanji + French — dynamic across the whole page. */
 export default function FloatingAmbience() {
   const [items, setItems] = useState<Floater[]>([]);
   const [bursts, setBursts] = useState<Burst[]>([]);
@@ -68,7 +65,7 @@ export default function FloatingAmbience() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     setItems(
-      Array.from({ length: reduce ? 10 : 36 }, (_, i) => makeFloater(i + 1))
+      Array.from({ length: reduce ? 10 : 40 }, (_, i) => makeFloater(i + 1))
     );
 
     if (reduce) return;
@@ -81,7 +78,7 @@ export default function FloatingAmbience() {
           i === idx ? makeFloater(Date.now() + Math.random()) : p
         );
       });
-    }, 3800);
+    }, 3200);
     return () => window.clearInterval(timer);
   }, []);
 
@@ -125,42 +122,34 @@ export default function FloatingAmbience() {
 
       {enabled &&
         items.map((item) => (
-          <motion.button
+          <span
             key={item.id}
-            type="button"
+            role="button"
+            tabIndex={0}
             aria-label={`Play · ${item.glyph}`}
-            className="pointer-events-auto absolute select-none border-0 bg-transparent p-2 font-display outline-none will-change-transform hover:z-10"
-            style={{
-              left: `${item.x}%`,
-              fontSize: item.size,
-              marginLeft: "-0.5em",
-              color: `rgba(224, 164, 88, ${item.opacity})`,
-              textShadow: "0 0 20px rgba(224,164,88,0.35)",
-            }}
-            initial={{ top: "110%", opacity: 0, rotate: -12 }}
-            animate={{
-              top: ["110%", "-12%"],
-              x: [0, item.sway * 0.35, item.sway, item.sway * 0.2, 0],
-              opacity: [0, item.opacity, item.opacity, 0],
-              rotate: [-10, 8, -6, 12, -4],
-            }}
-            transition={{
-              duration: item.duration,
-              delay: item.delay,
-              repeat: Infinity,
-              ease: "linear",
-              times: [0, 0.1, 0.8, 1],
-            }}
-            whileHover={{
-              scale: 1.4,
-              color: "rgba(245, 239, 224, 0.95)",
-              textShadow: "0 0 32px rgba(224,164,88,0.75)",
-            }}
-            whileTap={{ scale: 0.88 }}
             onClick={(e) => onClick(e, item)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onClick(e as unknown as React.MouseEvent, item);
+              }
+            }}
+            className="float-rise pointer-events-auto absolute cursor-pointer select-none font-display"
+            style={
+              {
+                left: `${item.x}%`,
+                fontSize: item.size,
+                animationDuration: `${item.duration}s`,
+                animationDelay: `${item.delay}s`,
+                "--sway": `${item.sway}px`,
+                "--floater-opacity": String(item.opacity),
+                color: `rgba(224, 164, 88, ${item.opacity})`,
+                textShadow: "0 0 22px rgba(224,164,88,0.45)",
+              } as React.CSSProperties
+            }
           >
             {item.glyph}
-          </motion.button>
+          </span>
         ))}
 
       <AnimatePresence>
