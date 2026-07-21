@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0908;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: #e9e0cc;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ── Selection ───────────────────────────────── */
+::selection {
+  background: rgba(224, 164, 88, 0.28);
+  color: #f5efe0;
+}
+
+/* ── Custom scrollbar ────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0908;
+}
+::-webkit-scrollbar-thumb {
+  background: #242019;
+  border-radius: 999px;
+  border: 2px solid #0a0908;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3226;
+}
+
+/* ── Artistic helpers ────────────────────────── */
+.text-gradient {
+  background: linear-gradient(
+    100deg,
+    #e0a458 0%,
+    #f5efe0 40%,
+    #c76b6b 70%,
+    #e0a458 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Fine grain / film texture overlay */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainShift 8s steps(8) infinite;
+}
+
+@keyframes grainShift {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-5%, 5%); }
+  40% { transform: translate(3%, -6%); }
+  60% { transform: translate(-4%, 4%); }
+  80% { transform: translate(6%, -3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Thin ruled-paper lines for the "poet's notebook" feel */
+.paper-lines {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 31px,
+    rgba(224, 164, 88, 0.06) 32px
+  );
+  background-size: 100% 32px;
+}
+
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(224, 164, 88, 0.35),
+    transparent
+  );
+}
+
+.glass {
+  background: rgba(27, 24, 21, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(224, 164, 88, 0.12);
+}
+
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  border-color: rgba(224, 164, 88, 0.4);
+  box-shadow: 0 24px 60px -30px rgba(224, 164, 88, 0.4);
+}
+
+/* Reveal-on-scroll base (used by framer-motion fallback too) */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 0;
+  background: #e0a458;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
