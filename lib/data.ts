@@ -45,15 +45,15 @@ export const stats = [
 export const techStack = [
   {
     group: "Languages",
-    items: ["Python", "TypeScript", "JavaScript", "C++"],
+    items: ["Python", "TypeScript", "JavaScript", "Java", "C++"],
   },
   {
     group: "ML & AI",
-    items: ["PyTorch", "NLP", "Computer Vision", "RAG", "LangChain", "Gemini"],
+    items: ["PyTorch", "NLP", "RAG", "LangChain", "Gemini"],
   },
   {
     group: "Backend & Infra",
-    items: ["Node.js", "Docker", "Kafka", "Redis", "GCP", "PostgreSQL"],
+    items: ["Node.js", "Docker", "Redis", "GCP", "PostgreSQL"],
   },
   {
     group: "Web3 & Frontend",
@@ -72,7 +72,7 @@ export const achievements = [
     title: "Runner-Up — InternLay Hackathon",
     org: "IIIT Ranchi",
     detail:
-      "Designed a workflow-automation system with Kafka and Redis for asynchronous, multi-tenant execution queues.",
+      "Designed a workflow-automation system with Redis for asynchronous, multi-tenant execution queues.",
   },
   {
     title: "Contributor — GirlScript Summer of Code",
