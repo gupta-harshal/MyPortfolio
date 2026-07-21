@@ -2,39 +2,12 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-
-/**
- * A short romantic piano vignette — an original homage in the spirit of
- * late-Romantic writing (think Rachmaninoff-adjacent color), synthesized
- * with Web Audio so we don't ship copyrighted recordings.
- */
-const MELODY: { midi: number; dur: number; gap?: number }[] = [
-  // Opening — dark, wide, chordal then a climbing line
-  { midi: 49, dur: 0.55 }, // C#3
-  { midi: 56, dur: 0.55 }, // G#3
-  { midi: 61, dur: 0.7 }, // C#4
-  { midi: 68, dur: 0.9, gap: 0.12 }, // G#4
-  { midi: 61, dur: 0.35 },
-  { midi: 63, dur: 0.35 },
-  { midi: 65, dur: 0.45 },
-  { midi: 68, dur: 0.55 },
-  { midi: 70, dur: 0.7, gap: 0.1 },
-  { midi: 68, dur: 0.4 },
-  { midi: 65, dur: 0.4 },
-  { midi: 63, dur: 0.5 },
-  { midi: 61, dur: 0.85, gap: 0.15 },
-  // Soft answer
-  { midi: 56, dur: 0.4 },
-  { midi: 58, dur: 0.4 },
-  { midi: 60, dur: 0.45 },
-  { midi: 61, dur: 0.55 },
-  { midi: 63, dur: 0.7 },
-  { midi: 65, dur: 1.1 },
-];
-
-function midiToFreq(midi: number) {
-  return 440 * Math.pow(2, (midi - 69) / 12);
-}
+import {
+  FUR_ELISE,
+  getAudioContext,
+  midiToFreq,
+  playPianoNote,
+} from "@/lib/audio";
 
 type Floater = { id: number; glyph: string; x: number; delay: number };
 
@@ -43,19 +16,16 @@ const GLYPHS = ["♪", "♫", "♬", "♩", "♮", "♯"];
 export default function MelodyPlayer() {
   const [playing, setPlaying] = useState(false);
   const [floaters, setFloaters] = useState<Floater[]>([]);
-  const ctxRef = useRef<AudioContext | null>(null);
   const timersRef = useRef<number[]>([]);
   const idRef = useRef(0);
+  const stopFlag = useRef(false);
 
-  const stopAll = useCallback(() => {
+  const clearTimers = useCallback(() => {
     timersRef.current.forEach((t) => window.clearTimeout(t));
     timersRef.current = [];
-    setPlaying(false);
-    void ctxRef.current?.close();
-    ctxRef.current = null;
   }, []);
 
-  useEffect(() => () => stopAll(), [stopAll]);
+  useEffect(() => () => clearTimers(), [clearTimers]);
 
   const spawnNotes = (count = 5) => {
     const batch: Floater[] = Array.from({ length: count }, () => {
@@ -70,83 +40,60 @@ export default function MelodyPlayer() {
     setFloaters((prev) => [...prev.slice(-18), ...batch]);
   };
 
-  const playMelody = async () => {
+  const stopAll = () => {
+    stopFlag.current = true;
+    clearTimers();
+    setPlaying(false);
+  };
+
+  const playMelody = () => {
     if (playing) {
       stopAll();
       setFloaters([]);
       return;
     }
 
-    const AC =
-      window.AudioContext ||
-      (window as unknown as { webkitAudioContext: typeof AudioContext })
-        .webkitAudioContext;
-    const ctx = new AC();
-    ctxRef.current = ctx;
-    if (ctx.state === "suspended") await ctx.resume();
-
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    stopFlag.current = false;
     setPlaying(true);
-    spawnNotes(6);
+    spawnNotes(7);
 
     let t = ctx.currentTime + 0.05;
-    const master = ctx.createGain();
-    master.gain.value = 0.22;
-    master.connect(ctx.destination);
 
-    // Soft pad under the line
+    // Soft pedal drone
     const pad = ctx.createOscillator();
     const padGain = ctx.createGain();
     pad.type = "sine";
-    pad.frequency.value = midiToFreq(37); // C#2 drone
+    pad.frequency.value = midiToFreq(45);
     padGain.gain.setValueAtTime(0.0001, t);
-    padGain.gain.exponentialRampToValueAtTime(0.06, t + 0.8);
+    padGain.gain.exponentialRampToValueAtTime(0.04, t + 0.6);
     pad.connect(padGain);
-    padGain.connect(master);
+    padGain.connect(ctx.destination);
     pad.start(t);
 
-    for (const note of MELODY) {
+    for (const note of FUR_ELISE) {
       const start = t;
       const end = start + note.dur;
+      const delayMs = Math.max(0, (start - ctx.currentTime) * 1000);
 
-      // Two partials ≈ soft piano
-      for (const [mult, amp] of [
-        [1, 0.7],
-        [2, 0.18],
-        [3, 0.06],
-      ] as const) {
-        const osc = ctx.createOscillator();
-        const g = ctx.createGain();
-        const f = ctx.createBiquadFilter();
-        osc.type = "triangle";
-        osc.frequency.setValueAtTime(midiToFreq(note.midi) * mult, start);
-        f.type = "lowpass";
-        f.frequency.setValueAtTime(2800, start);
-        f.frequency.exponentialRampToValueAtTime(900, end);
-        g.gain.setValueAtTime(0.0001, start);
-        g.gain.exponentialRampToValueAtTime(amp, start + 0.02);
-        g.gain.exponentialRampToValueAtTime(0.0001, end);
-        osc.connect(f);
-        f.connect(g);
-        g.connect(master);
-        osc.start(start);
-        osc.stop(end + 0.05);
-      }
-
-      const delayMs = (start - ctx.currentTime) * 1000;
-      const tid = window.setTimeout(() => spawnNotes(2), Math.max(0, delayMs));
+      const tid = window.setTimeout(() => {
+        if (stopFlag.current) return;
+        playPianoNote(note.midi, note.dur + 0.15, 0.78);
+        spawnNotes(2);
+      }, delayMs);
       timersRef.current.push(tid);
 
-      t = end + (note.gap ?? 0.04);
+      t = end + (note.gap ?? 0.03);
     }
 
+    padGain.gain.setValueAtTime(0.04, t - 0.5);
     padGain.gain.exponentialRampToValueAtTime(0.0001, t);
-    pad.stop(t + 0.1);
+    pad.stop(t + 0.05);
 
     const endTid = window.setTimeout(() => {
-      setPlaying(false);
-      void ctx.close();
-      if (ctxRef.current === ctx) ctxRef.current = null;
-    }, (t - ctx.currentTime) * 1000 + 200);
+      if (!stopFlag.current) setPlaying(false);
+    }, (t - ctx.currentTime) * 1000 + 250);
     timersRef.current.push(endTid);
   };
 
@@ -154,7 +101,7 @@ export default function MelodyPlayer() {
     <div className="relative">
       <button
         type="button"
-        onClick={() => void playMelody()}
+        onClick={playMelody}
         aria-pressed={playing}
         className={`group relative inline-flex items-center gap-3 overflow-hidden rounded-full border px-6 py-3 font-mono text-xs uppercase tracking-[0.22em] transition-all ${
           playing
@@ -173,21 +120,24 @@ export default function MelodyPlayer() {
             <span className="ml-0.5 border-y-[6px] border-l-[10px] border-y-transparent border-l-current" />
           )}
         </span>
-        {playing ? "Stop melody" : "Play piano vignette"}
+        {playing ? "Stop · 停止" : "Play Für Elise"}
       </button>
       <p className="mt-3 max-w-xs font-mono text-[10px] leading-relaxed tracking-[0.12em] text-parchment-300/45">
-        An original romantic piano sketch — in the spirit of Rachmaninoff, not
-        a recording.
+        Beethoven · Für Elise (public domain) — synthesized piano, not a recording.
       </p>
 
-      {/* Floating notes */}
       <div className="pointer-events-none absolute inset-x-0 -top-2 h-40 overflow-visible">
         <AnimatePresence>
           {floaters.map((n) => (
             <motion.span
               key={n.id}
               initial={{ opacity: 0, y: 20, scale: 0.6 }}
-              animate={{ opacity: [0, 1, 0], y: -110, scale: 1.15, rotate: [-8, 12] }}
+              animate={{
+                opacity: [0, 1, 0],
+                y: -110,
+                scale: 1.15,
+                rotate: [-8, 12],
+              }}
               exit={{ opacity: 0 }}
               transition={{ duration: 2.4, delay: n.delay, ease: "easeOut" }}
               onAnimationComplete={() =>
