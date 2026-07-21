@@ -27,6 +27,7 @@ export const socials = {
   linkedin: "https://www.linkedin.com/in/harshalgupta10/",
   twitter: "https://twitter.com/",
   instagram: "https://instagram.com/", // 3D design / creative work
+  codolio: "https://codolio.com/profile/harshalgupta10", // ← fix username if different
   leetcode: "https://leetcode.com/",
   codeforces: "https://codeforces.com/",
   codechef: "https://www.codechef.com/",
@@ -44,7 +45,7 @@ export const stats = [
 export const techStack = [
   {
     group: "Languages",
-    items: ["Python", "TypeScript", "JavaScript", "C++", "Solidity"],
+    items: ["Python", "TypeScript", "JavaScript", "C++"],
   },
   {
     group: "ML & AI",
@@ -56,7 +57,7 @@ export const techStack = [
   },
   {
     group: "Web3 & Frontend",
-    items: ["Ethereum", "Smart Contracts", "React", "Next.js", "Tailwind"],
+    items: ["Solana", "RPC Nodes", "React", "Next.js", "Tailwind"],
   },
 ];
 
@@ -168,22 +169,13 @@ export const projects = [
     accent: "amber",
   },
   {
-    title: "Web3 Airdrop dApp",
-    tags: ["Web3", "Solidity", "Ethereum", "dApp"],
+    title: "Solana Airdrop dApp",
+    tags: ["Solana", "Web3", "RPC", "dApp"],
     description:
-      "Decentralized airdrop application built on Web3 — smart-contract based token distribution with a frontend for wallet connect and claim flows.",
+      "Decentralized airdrop application on Solana — wallet connect, claim flows, and RPC-node based chain reads for token distribution.",
     github: "",
     live: "",
     accent: "rose",
-  },
-  {
-    title: "Distributed Workflow Automation Engine",
-    tags: ["Kafka", "Redis", "Docker", "Distributed Systems"],
-    description:
-      "Workflow-automation system using Kafka and Redis to handle asynchronous, multi-tenant execution queues at scale. Runner-Up at IIIT Ranchi InternLay.",
-    github: "",
-    live: "",
-    accent: "sage",
   },
 ];
 
@@ -193,7 +185,7 @@ export const projects = [
 export const passions = [
   {
     title: "Guitar",
-    line: "Electric and acoustic — I've performed with many teams and on many stages. Drag the 3D guitar below.",
+    line: "Electric and acoustic — I've performed with many teams and on many stages. Try the interactive guitar.",
   },
   {
     title: "Reading",
@@ -212,14 +204,14 @@ export const passions = [
 export const marqueeWords = [
   "Machine Learning",
   "Docker",
-  "Web3",
+  "Solana",
   "RAG Systems",
   "Competitive Programming",
   "GCP",
   "Guitar",
-  "Kafka",
+  "RPC Nodes",
   "React",
-  "Solidity",
+  "Web3",
   "GSSoC",
   "GDG Ranchi",
   "Japanese",

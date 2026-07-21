@@ -22,11 +22,11 @@ export default function About() {
               production pipelines.
             </p>
             <p className="mt-5 leading-relaxed text-parchment-300/70">
-              I&apos;ve shipped enterprise RAG on GCP, built Web3 airdrop dApps,
-              containerised services with Docker, and moved fast in high-pressure
-              hackathons. Outside the IDE: guitar on stage, books on the shelf,
-              Japanese &amp; French on a long Duolingo streak, and a bit of 3D
-              design for fun.
+              I&apos;ve shipped enterprise RAG on GCP, built Solana airdrop
+              dApps with RPC-node concepts, containerised services with Docker,
+              and moved fast in high-pressure hackathons. Outside the IDE:
+              guitar on stage, books on the shelf, Japanese &amp; French on a
+              long Duolingo streak, and a bit of 3D design for fun.
             </p>
             <ul className="mt-8 grid gap-2 font-mono text-sm text-parchment-300/70 sm:grid-cols-2">
               <li>› B.Tech CSE (DS &amp; AI), IIIT Ranchi</li>
