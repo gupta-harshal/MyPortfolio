@@ -53,19 +53,38 @@ function makeFloater(id: number): Floater {
   };
 }
 
-/** Site-wide rising notes + kanji + French — dynamic across the whole page. */
+/** Rising notes + kanji — only after the tech sections (#craft and below). */
 export default function FloatingAmbience() {
   const [items, setItems] = useState<Floater[]>([]);
   const [bursts, setBursts] = useState<Burst[]>([]);
   const [enabled, setEnabled] = useState(true);
+  const [inZone, setInZone] = useState(false);
 
   useEffect(() => {
+    const craft = document.getElementById("craft");
+    if (!craft) return;
+
+    const update = () => {
+      setInZone(craft.getBoundingClientRect().top < window.innerHeight * 0.75);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!inZone) return;
+
     const reduce =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     setItems(
-      Array.from({ length: reduce ? 10 : 40 }, (_, i) => makeFloater(i + 1))
+      Array.from({ length: reduce ? 10 : 32 }, (_, i) => makeFloater(i + 1))
     );
 
     if (reduce) return;
@@ -80,7 +99,7 @@ export default function FloatingAmbience() {
       });
     }, 3200);
     return () => window.clearInterval(timer);
-  }, []);
+  }, [inZone]);
 
   const onClick = (e: React.MouseEvent, item: Floater) => {
     e.preventDefault();
@@ -110,6 +129,8 @@ export default function FloatingAmbience() {
     );
   };
 
+  if (!inZone) return null;
+
   return (
     <div className="pointer-events-none fixed inset-0 z-[48] overflow-hidden">
       <button
@@ -137,7 +158,7 @@ export default function FloatingAmbience() {
             className="float-rise pointer-events-auto absolute cursor-pointer select-none font-display"
             style={
               {
-                left: `${item.x}%`,
+                left: `${item.left}%`,
                 fontSize: item.size,
                 animationDuration: `${item.duration}s`,
                 animationDelay: `${item.delay}s`,
