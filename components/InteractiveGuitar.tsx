@@ -259,7 +259,7 @@ export default function InteractiveGuitar() {
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-parchment-300/50">
-          Strum · press 1–6 · Space to strum
+          Strum · press 1-6 · Space to strum
         </p>
         <div className="flex rounded-full border border-amber-brand/20 bg-ink-900 p-1">
           {(["electric", "acoustic"] as const).map((k) => (
@@ -326,7 +326,7 @@ export default function InteractiveGuitar() {
             className="relative h-full w-full drop-shadow-[0_30px_55px_rgba(0,0,0,0.6)]"
             style={{ transform: "translateZ(0px)" }}
             role="img"
-            aria-label={`${kind} guitar — strum, or press number keys 1 to 6 to play`}
+            aria-label={`${kind} guitar. Strum, or press number keys 1 to 6 to play`}
           >
             <defs>
               <radialGradient id="bodyGrad" cx="42%" cy="38%" r="75%">

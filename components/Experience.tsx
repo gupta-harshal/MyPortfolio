@@ -9,7 +9,7 @@ export default function Experience() {
         <SectionHeading
           index="02"
           kicker="Experience & Wins"
-          title="Where theory met production."
+          title="Work, hacks, and a few wins."
         />
 
         <div className="relative border-l border-amber-brand/20 pl-8 md:pl-10">

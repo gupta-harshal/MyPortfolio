@@ -123,7 +123,7 @@ export default function MelodyPlayer() {
         {playing ? "Stop · 停止" : "Play Für Elise"}
       </button>
       <p className="mt-3 max-w-xs font-mono text-[10px] leading-relaxed tracking-[0.12em] text-parchment-300/45">
-        Beethoven · Für Elise (public domain) — synthesized piano, not a recording.
+        Beethoven · Für Elise (public domain). Synthesized piano, not a recording.
       </p>
 
       <div className="pointer-events-none absolute inset-x-0 -top-2 h-40 overflow-visible">

@@ -42,7 +42,7 @@ export default function Contact() {
         `Portfolio · Hello from ${name || "someone"}`
       );
       const body = encodeURIComponent(
-        `${message}\n\n— ${name}${email ? ` (${email})` : ""}`
+        `${message}\n\n- ${name}${email ? ` (${email})` : ""}`
       );
       window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
       setStatus("sent");
@@ -55,13 +55,13 @@ export default function Contact() {
   return (
     <section id="contact" className="relative px-6 py-24 md:px-10 md:py-36">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading index="05" kicker="Contact" title="Let's make something." />
+        <SectionHeading index="05" kicker="Contact" title="Say hi." />
 
         <div className="grid gap-12 md:grid-cols-2">
           <div>
             <p className="max-w-md text-lg leading-relaxed text-parchment-300/75">
-              Have an idea, a role, a collaboration, or just want to talk music and
-              machine learning? My inbox is always open.
+              Got a role, a project idea, or just want to talk music and ML?
+              Drop me a message.
             </p>
 
             <a
@@ -140,7 +140,7 @@ export default function Contact() {
 
             {status === "sent" && (
               <p className="text-center font-mono text-xs text-sage">
-                Message sent — thanks for reaching out!
+                Message sent. Thanks for reaching out!
               </p>
             )}
             {status === "error" && (

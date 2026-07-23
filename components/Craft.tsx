@@ -35,7 +35,7 @@ export default function Craft() {
         <SectionHeading
           index="04"
           kicker="Beyond Engineering"
-          title="Still human. Still shipping."
+          title="The rest of the picture."
         />
 
         <div className="grid items-start gap-12 lg:grid-cols-2">
@@ -94,8 +94,7 @@ export default function Craft() {
               A little music between pages.
             </h3>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-parchment-300/65">
-              Un peu de musique — soft piano for the shelf below. Press play and
-              watch the notes float.
+              Soft piano for the shelf below. Hit play and the notes float up.
             </p>
             <div className="mt-8">
               <MelodyPlayer />

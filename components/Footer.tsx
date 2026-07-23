@@ -9,7 +9,7 @@ export default function Footer() {
           {profile.tagline}
         </p>
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-parchment-300/50">
-          © {year} {profile.name} · Crafted with code &amp; a little music
+          © {year} {profile.name} · Built with code and a little music
         </p>
       </div>
     </footer>

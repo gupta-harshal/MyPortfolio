@@ -9,24 +9,21 @@ export default function About() {
         <SectionHeading
           index="01"
           kicker="About"
-          title="Engineer first. Curious always."
+          title="I like building things that work."
         />
 
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
           <Reveal>
             <p className="text-lg leading-relaxed text-parchment-300/80 md:text-xl">
-              I&apos;m fascinated by computational efficiency, optimisation, and
-              the intersection of data with intelligence. Competitive programming
-              built my intuition for deterministic systems; Data Science &amp; AI
-              pushed me into probabilistic ML — RAG, multimodal models, and
-              production pipelines.
+              Competitive programming got me hooked on clean problem solving.
+              Studying Data Science &amp; AI pulled me into ML, especially RAG,
+              language models, and getting those systems into real products.
             </p>
             <p className="mt-5 leading-relaxed text-parchment-300/70">
-              I&apos;ve shipped enterprise RAG on GCP, built Solana airdrop
-              dApps with RPC-node concepts, containerised services with Docker,
-              and moved fast in high-pressure hackathons. Outside the IDE:
-              guitar on stage, books on the shelf, Japanese &amp; French on a
-              long Duolingo streak, and a bit of 3D design for fun.
+              I&apos;ve built RAG pipelines on GCP, Solana airdrop apps, and
+              Dockerised services, and I&apos;ve spent plenty of weekends in
+              hackathons. Outside of code: guitar, books, Japanese and French
+              on Duolingo, and some 3D design when I feel like it.
             </p>
             <ul className="mt-8 grid gap-2 font-mono text-sm text-parchment-300/70 sm:grid-cols-2">
               <li>› B.Tech CSE (DS &amp; AI), IIIT Ranchi</li>

@@ -10,13 +10,13 @@ export const profile = {
   name: "Harshal Gupta",
   firstName: "Harshal",
   role: "Software Engineer · ML & Systems",
-  tagline: "Shipping ML systems, Web3 apps, and production-grade software.",
+  tagline: "I build ML systems, Web3 apps, and full-stack software that actually ships.",
   location: "IIIT Ranchi, India",
   email: "guptharshal.hg@gmail.com",
-  // Put your PDF at public/resume.pdf — then this link works as a download
+  // Put your PDF at public/resume.pdf so this link downloads it
   resumeUrl: "/resume.pdf",
   blurb:
-    "B.Tech in Computer Science & Engineering (Data Science & AI) at IIIT Ranchi. I build RAG pipelines, decentralized apps, and full-stack products — with Docker, cloud, and competitive programming as the foundation.",
+    "B.Tech in Computer Science & Engineering (Data Science & AI) at IIIT Ranchi. Most of my time goes into RAG pipelines, Solana apps, and full-stack products. Docker, cloud, and competitive programming sit underneath all of that.",
   cgpa: "8.05",
 };
 
@@ -65,40 +65,40 @@ export const techStack = [
 
 export const achievements = [
   {
-    title: "2nd Runner-Up — Postman Hackathon",
+    title: "2nd Runner-Up, Postman Hackathon",
     org: "BITS Pilani",
     detail:
       "Built a role-based hospital management system with an LLM chatbot using vector embeddings from the Gale Encyclopedia of Medicine.",
   },
   {
-    title: "Runner-Up — InternLay Hackathon",
+    title: "Runner-Up, InternLay Hackathon",
     org: "IIIT Ranchi",
     detail:
-      "Designed a workflow-automation system with Redis for asynchronous, multi-tenant execution queues.",
+      "Designed a workflow automation system with Redis for async, multi-tenant execution queues.",
   },
   {
-    title: "Contributor — GirlScript Summer of Code",
+    title: "Contributor, GirlScript Summer of Code",
     org: "GSSoC",
     detail:
-      "Open-source contributor during GSSoC — shipping features, reviews, and collaboration across community projects.",
+      "Contributed to open source during GSSoC: features, reviews, and working with other contributors.",
   },
   {
     title: "Partnership Manager · Co-Lead",
     org: "GDG Ranchi",
     detail:
-      "Co-led partnerships for Google Developer Group Ranchi — community growth, event collaborations, and developer outreach.",
+      "Helped run partnerships for Google Developer Group Ranchi: events, collabs, and getting more people into the community.",
   },
   {
     title: "Codeforces Specialist · LeetCode Knight · CodeChef 3★",
     org: "Competitive Programming",
     detail:
-      "1,400+ problems solved — deep intuition for algorithms, optimisation, and system design under pressure.",
+      "1,400+ problems solved. Good practice for thinking through algorithms and system design when the clock is ticking.",
   },
   {
-    title: "1,800+ Day Streak — Duolingo",
+    title: "1,800+ Day Streak on Duolingo",
     org: "Japanese & French",
     detail:
-      "Consistent daily practice learning Japanese and French — discipline that carries into engineering work.",
+      "Still showing up every day for Japanese and French. Same habit I try to keep with engineering work.",
   },
 ];
 
@@ -108,11 +108,11 @@ export const experience = [
     company: "dAaranya",
     period: "7 months",
     summary:
-      "Built enterprise-grade Retrieval-Augmented Generation (RAG) systems for US-based clients.",
+      "Built Retrieval-Augmented Generation (RAG) systems for US-based clients.",
     points: [
-      "Designed automated web crawlers and parsed unstructured data into semantic search pipelines.",
-      "Led deployment on Google Cloud Platform (GCP) with containerised workflows using Docker.",
-      "Reduced LLM query costs by 50% by migrating high-volume workloads to the Gemini Batch API.",
+      "Wrote automated web crawlers and turned messy unstructured data into searchable pipelines.",
+      "Owned deployment on Google Cloud Platform with Docker-based workflows.",
+      "Cut LLM query costs by about 50% by moving heavy workloads onto the Gemini Batch API.",
     ],
   },
   {
@@ -120,16 +120,16 @@ export const experience = [
     company: "GDG Ranchi",
     period: "Community",
     summary:
-      "Co-led partnerships and community initiatives for Google Developer Group Ranchi.",
+      "Co-led partnerships and community work for Google Developer Group Ranchi.",
     points: [
-      "Drove partner collaborations and developer-community outreach for local tech events.",
-      "Supported workshops and meetups connecting students with industry practitioners.",
+      "Worked with partners and helped grow local developer events.",
+      "Helped run workshops and meetups connecting students with people already in the industry.",
     ],
   },
 ];
 
 /**
- * PROJECTS — ordered as requested.
+ * PROJECTS (ordered as requested).
  * Fill `github` (and optionally `live`) when ready.
  * Empty `live` hides the Live button; empty `github` hides Code.
  */
@@ -138,7 +138,7 @@ export const projects = [
     title: "Personalized Language Learning Platform",
     tags: ["SM-2", "Full-Stack", "Spaced Repetition"],
     description:
-      "Language-learning platform built from scratch with the SuperMemo-2 (SM-2) algorithm — dynamically computing optimal review intervals from memory-decay curves.",
+      "Language learning app built from scratch around the SuperMemo-2 (SM-2) algorithm. It figures out when you should review a card based on how memory tends to fade.",
     github: "https://github.com/gupta-harshal/LanguageLearning",
     live: "https://language-learning-g1md85x5g-harshal-guptas-projects.vercel.app/",
     accent: "amber",
@@ -147,7 +147,7 @@ export const projects = [
     title: "Hospital Management System + LLM Chatbot",
     tags: ["RAG", "LLM", "Vector Embeddings"],
     description:
-      "Role-based hospital / medical management platform with an LLM chatbot powered by Gale Encyclopedia of Medicine embeddings. 2nd Runner-Up at BITS Pilani Postman Hackathon.",
+      "Role-based hospital management platform with an LLM chatbot backed by Gale Encyclopedia of Medicine embeddings. Came 2nd runner-up at the BITS Pilani Postman Hackathon.",
     github: "https://github.com/InternLay-HG/SMHackers",
     live: "https://sm-hackers.vercel.app/",
     accent: "sage",
@@ -156,7 +156,7 @@ export const projects = [
     title: "Stock Exchange Platform",
     tags: ["Full-Stack", "Real-time", "FinTech"],
     description:
-      "Stock exchange application focused on trading flows, market data handling, and a clean full-stack architecture for simulated / live market interactions.",
+      "Stock exchange app focused on trading flows, market data, and a clean full-stack setup for simulated market interactions.",
     github: "https://github.com/gupta-harshal/exchange-platform",
     live: "",
     accent: "amber",
@@ -165,7 +165,7 @@ export const projects = [
     title: "Solana Airdrop dApp",
     tags: ["Solana", "Web3", "RPC", "dApp"],
     description:
-      "Decentralized airdrop application on Solana — wallet connect, claim flows, and RPC-node based chain reads for token distribution.",
+      "Airdrop app on Solana with wallet connect, claim flows, and RPC-based chain reads for token distribution.",
     github: "https://github.com/gupta-harshal/dApp",
     live: "",
     accent: "rose",
@@ -174,7 +174,7 @@ export const projects = [
     title: "Cross-Cultural Misogyny Detection",
     tags: ["NLP", "Text Classification", "ML"],
     description:
-      "NLP system that detects nuanced misogynistic content in text across Indian, Chinese, and English cultural contexts using language modelling and classification.",
+      "NLP model that flags misogynistic language across Indian, Chinese, and English contexts using text classification.",
     github: "https://github.com/gupta-harshal/Cross-Cultural-Meme-Detection",
     live: "",
     accent: "rose",
@@ -182,30 +182,29 @@ export const projects = [
 ];
 
 /**
- * Beyond engineering — still relevant, tech portfolio first.
+ * Outside of engineering.
  */
 export const passions = [
   {
     title: "Guitar",
-    line: "Electric and acoustic — I've performed with many teams and on many stages. Try the interactive guitar.",
+    line: "Electric and acoustic. I've played with a bunch of teams and on a bunch of stages. Try the interactive guitar.",
   },
   {
     title: "Reading",
-    line: "Books keep the mental stack deep — philosophy, psychology, and how money & markets actually work.",
+    line: "Mostly philosophy, psychology, and books about how money and markets actually work.",
   },
   {
     title: "Languages",
-    line: "1,800+ day Duolingo streak learning Japanese and French — consistency as a craft.",
+    line: "1,800+ day Duolingo streak for Japanese and French. Showing up every day adds up.",
   },
   {
     title: "3D Design",
-    line: "Hands-on 3D design exposure — creative experiments live on Instagram alongside the engineering work.",
+    line: "I mess around with 3D design too. Some of that ends up on Instagram next to the engineering stuff.",
   },
 ];
 
 /**
- * Reading shelf — no status, just the collection.
- * Edit freely in this file.
+ * Reading shelf. Edit freely.
  */
 export const books = [
   { title: "Bhagavad Gita", author: "Traditional" },

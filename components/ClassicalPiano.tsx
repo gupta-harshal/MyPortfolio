@@ -121,8 +121,8 @@ export default function ClassicalPiano() {
               Play a little.
             </h2>
             <p className="mt-2 max-w-md text-sm text-parchment-300/60">
-              Click the keys — or use your keyboard{" "}
-              <span className="font-mono text-amber-brand/70">A–L</span>{" "}
+              Click the keys, or use your keyboard{" "}
+              <span className="font-mono text-amber-brand/70">A-L</span>{" "}
               (black keys on{" "}
               <span className="font-mono text-amber-brand/70">W E T Y U O P</span>
               ).
