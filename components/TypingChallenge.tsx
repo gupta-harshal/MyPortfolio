@@ -203,124 +203,157 @@ export default function TypingChallenge() {
   };
 
   return (
-    <div id="typing" className="glass scroll-mt-28 overflow-hidden rounded-3xl p-6 md:p-8">
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-amber-brand/70">
-            Typing · 10 words
-          </p>
-          <h3 className="mt-2 font-display text-3xl text-parchment-100 md:text-4xl">
-            Random words. Your turn.
-          </h3>
-          <p className="mt-2 max-w-md text-sm leading-relaxed text-parchment-300/65">
-            Ten randomly generated words. I once hit{" "}
-            <span className="text-parchment-200">{targetWpm} WPM</span> on this
-            mode. See what you get.
-          </p>
+    <div id="typing" className="glass scroll-mt-28 overflow-hidden rounded-3xl">
+      <div className="grid md:grid-cols-[1fr_11rem]">
+        <div className="p-6 md:p-8">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-amber-brand/70">
+                Typing · 10 words
+              </p>
+              <h3 className="mt-2 font-display text-3xl text-parchment-100 md:text-4xl">
+                Can you clear it?
+              </h3>
+              <p className="mt-2 max-w-md text-sm leading-relaxed text-parchment-300/65">
+                Ten randomly generated words. Timer starts on your first key.
+                Finish the set and see where you land against the mark.
+              </p>
+            </div>
+            <a
+              href={profileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-amber-brand/40 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-amber-brand transition-all hover:bg-amber-brand hover:text-ink-950"
+            >
+              View {username}&apos;s Monkeytype
+            </a>
+          </div>
+
+          <div className="mt-6 flex flex-wrap items-center gap-6 border-y border-amber-brand/10 py-4 font-mono text-xs uppercase tracking-[0.18em] text-parchment-300/55">
+            <span>
+              you{" "}
+              <span className="text-parchment-100">
+                {result ? result.wpm : liveWpm || "-"}
+              </span>{" "}
+              wpm
+            </span>
+            <span>
+              words{" "}
+              <span className="text-parchment-100">
+                {result ? wordCount : wordIndex}/{wordCount}
+              </span>
+            </span>
+            {result && (
+              <span>
+                acc <span className="text-parchment-100">{result.accuracy}%</span>
+              </span>
+            )}
+          </div>
+
+          <div
+            role="presentation"
+            onClick={() => {
+              setFocused(true);
+              inputRef.current?.focus();
+            }}
+            className="relative mt-6 w-full cursor-text rounded-2xl border border-amber-brand/15 bg-ink-950/55 px-5 py-10 text-left transition-colors hover:border-amber-brand/30"
+          >
+            {!focused && !result && (
+              <span className="pointer-events-none absolute inset-0 grid place-items-center font-mono text-[10px] uppercase tracking-[0.25em] text-parchment-300/40">
+                Click here, then type
+              </span>
+            )}
+            <p
+              className={`font-mono text-xl leading-relaxed tracking-wide md:text-2xl ${
+                !focused && !result ? "opacity-25" : ""
+              }`}
+            >
+              {words.map(renderWord)}
+            </p>
+            <input
+              ref={inputRef}
+              value={typed}
+              onChange={(e) => onChange(e.target.value)}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
+              disabled={!!result}
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
+              aria-label="Typing challenge input"
+              className="absolute inset-0 cursor-text opacity-0"
+            />
+          </div>
+
+          {result && (
+            <div className="mt-6 rounded-2xl border border-amber-brand/15 bg-ink-900/50 px-5 py-5">
+              <p className="font-display text-2xl text-parchment-100">
+                {result.beat
+                  ? `Cleared. ${result.wpm} WPM.`
+                  : result.wpm === targetWpm
+                  ? `Tied at ${result.wpm} WPM.`
+                  : `${result.wpm} WPM this run.`}
+              </p>
+              <p className="mt-2 font-mono text-xs uppercase tracking-[0.15em] text-parchment-300/55">
+                Accuracy {result.accuracy}%
+                {!result.beat && result.wpm !== targetWpm
+                  ? ` · mark is ${targetWpm}`
+                  : ""}
+              </p>
+            </div>
+          )}
+
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              onClick={reset}
+              className="rounded-full border border-amber-brand/40 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-amber-brand transition-all hover:bg-amber-brand hover:text-ink-950"
+            >
+              {result ? "Try again" : "New words"}
+            </button>
+            <a
+              href={profileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline font-mono text-[10px] uppercase tracking-[0.2em] text-parchment-300/70 hover:text-amber-brand"
+            >
+              Open Monkeytype profile →
+            </a>
+          </div>
         </div>
-        <a
-          href={profileUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full border border-amber-brand/40 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-amber-brand transition-all hover:bg-amber-brand hover:text-ink-950"
-        >
-          View Monkeytype profile
-        </a>
-      </div>
 
-      <div className="mt-6 flex flex-wrap items-center gap-6 border-y border-amber-brand/10 py-4 font-mono text-xs uppercase tracking-[0.18em] text-parchment-300/55">
-        <span>
-          wpm{" "}
-          <span className="text-parchment-100">
-            {result ? result.wpm : liveWpm || "-"}
-          </span>
-        </span>
-        <span className="text-parchment-300/40">
-          to beat <span className="text-parchment-300/70">{targetWpm}</span>
-        </span>
-        <span>
-          words{" "}
-          <span className="text-parchment-100">
-            {result ? wordCount : wordIndex}/{wordCount}
-          </span>
-        </span>
-        {result && (
-          <span>
-            acc <span className="text-parchment-100">{result.accuracy}%</span>
-          </span>
-        )}
-      </div>
-
-      <div
-        role="presentation"
-        onClick={() => {
-          setFocused(true);
-          inputRef.current?.focus();
-        }}
-        className="relative mt-6 w-full cursor-text rounded-2xl border border-amber-brand/15 bg-ink-950/55 px-5 py-8 text-left transition-colors hover:border-amber-brand/30"
-      >
-        {!focused && !result && (
-          <span className="pointer-events-none absolute inset-0 grid place-items-center font-mono text-[10px] uppercase tracking-[0.25em] text-parchment-300/40">
-            Click here to start
-          </span>
-        )}
-        <p
-          className={`font-mono text-lg leading-relaxed tracking-wide md:text-xl ${
-            !focused && !result ? "opacity-25" : ""
-          }`}
-        >
-          {words.map(renderWord)}
-        </p>
-        <input
-          ref={inputRef}
-          value={typed}
-          onChange={(e) => onChange(e.target.value)}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-          disabled={!!result}
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="off"
-          spellCheck={false}
-          aria-label="Typing challenge input"
-          className="absolute inset-0 cursor-text opacity-0"
-        />
-      </div>
-
-      {result && (
-        <div className="mt-6 rounded-2xl border border-amber-brand/15 bg-ink-900/50 px-5 py-5">
-          <p className="font-display text-2xl text-parchment-100">
-            {result.beat
-              ? `Nice. ${result.wpm} WPM clears the mark.`
-              : result.wpm === targetWpm
-              ? `Tied at ${result.wpm} WPM. One more round?`
-              : `${result.wpm} WPM this time.`}
-          </p>
-          <p className="mt-2 font-mono text-xs uppercase tracking-[0.15em] text-parchment-300/55">
-            Accuracy {result.accuracy}%
-            {!result.beat && result.wpm !== targetWpm
-              ? ` · mark sits at ${targetWpm}`
-              : ""}
-          </p>
+        {/* Subtle 160 WPM flex rail */}
+        <div className="flex flex-row items-center justify-between gap-4 border-t border-amber-brand/10 bg-ink-950/40 px-6 py-5 md:flex-col md:items-center md:justify-center md:border-l md:border-t-0 md:px-4 md:py-8">
+          <div className="text-center md:space-y-1">
+            <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-parchment-300/40">
+              mark to beat
+            </p>
+            <p className="font-display text-5xl leading-none text-amber-brand/90 md:text-6xl">
+              {targetWpm}
+            </p>
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-parchment-300/50">
+              WPM
+            </p>
+          </div>
+          <div className="hidden h-px w-10 bg-amber-brand/20 md:block" />
+          <div className="text-right md:text-center">
+            <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-parchment-300/40">
+              10 words · 100%
+            </p>
+            <p className="mt-1 font-display text-lg text-parchment-200/80">
+              {username}
+            </p>
+            <a
+              href={profileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block font-mono text-[9px] uppercase tracking-[0.18em] text-amber-brand/70 transition-colors hover:text-amber-brand"
+            >
+              profile →
+            </a>
+          </div>
         </div>
-      )}
-
-      <div className="mt-6 flex flex-wrap items-center gap-3">
-        <button
-          type="button"
-          onClick={reset}
-          className="rounded-full border border-amber-brand/40 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-amber-brand transition-all hover:bg-amber-brand hover:text-ink-950"
-        >
-          {result ? "Try again" : "New words"}
-        </button>
-        <a
-          href={profileUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link-underline font-mono text-[10px] uppercase tracking-[0.2em] text-parchment-300/70 hover:text-amber-brand"
-        >
-          Full stats on Monkeytype (@{username}) →
-        </a>
       </div>
     </div>
   );

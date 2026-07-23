@@ -11,13 +11,13 @@ export const profile = {
   firstName: "Harshal",
   role: "Software Engineer, ML and Systems",
   tagline:
-    "I build ML systems, Web3 apps, and full-stack software that actually ships.",
+    "Building ML systems, full-stack products, and Web3 apps out of IIIT Ranchi.",
   location: "IIIT Ranchi, India",
   email: "guptharshal.hg@gmail.com",
   // Put your PDF at public/resume.pdf so this link downloads it
   resumeUrl: "/resume.pdf",
   blurb:
-    "B.Tech in Computer Science and Engineering with Data Science and AI at IIIT Ranchi, class of 2027. Most of my time goes into RAG pipelines, Solana apps, and full-stack products. Docker, cloud, and competitive programming sit underneath all of that.",
+    "B.Tech in Computer Science and Engineering with Data Science and AI at IIIT Ranchi (class of 2027). I work on RAG pipelines, Solana apps, and production software, with competitive programming, Docker, and cloud underneath.",
   cgpa: "8.05",
 };
 
@@ -36,7 +36,7 @@ export const socials = {
   medium: "https://medium.com/@gupta_harshal",
   substack: "https://substack.com/@guptaharshal",
   duolingo: "https://www.duolingo.com/profile/HarshalGup2",
-  monkeytype: "https://monkeytype.com/profile/Harsha1HG",
+  monkeytype: "https://monkeytype.com/profile/HarshalHG",
 };
 
 /** 10-word challenge visitors can try to beat */
@@ -45,8 +45,8 @@ export const typingChallenge = {
   targetWpm: 160,
   targetAccuracy: 100,
   modeLabel: "10 words",
-  username: "Harsha1HG",
-  profileUrl: "https://monkeytype.com/profile/Harsha1HG",
+  username: "HarshalHG",
+  profileUrl: "https://monkeytype.com/profile/HarshalHG",
 };
 
 export const education = [
@@ -224,7 +224,7 @@ export const passions = [
   },
   {
     title: "Typing",
-    line: "I type a bit. Challenge below is 10 random words. Target to beat sits quietly at 160 WPM.",
+    line: "10-word runs for fun. Mark to clear is 160 WPM. Profile is on Monkeytype under HarshalHG.",
   },
   {
     title: "Reading",

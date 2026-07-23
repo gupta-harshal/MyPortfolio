@@ -15,21 +15,15 @@ export default function About() {
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
           <Reveal>
             <p className="text-lg leading-relaxed text-parchment-300/80 md:text-xl">
-              Competitive programming got me hooked on clean problem solving.
-              Studying Data Science and AI pulled me into ML, especially RAG,
-              language models, and getting those systems into real products.
+              I am doing my B.Tech in CSE with Data Science and AI at IIIT
+              Ranchi. Competitive programming got me into clean problem solving.
+              The DS and AI track pulled me into ML, mostly RAG, language
+              models, and shipping those systems for real use.
             </p>
             <p className="mt-5 leading-relaxed text-parchment-300/70">
-              I finished school at Swaraj India Public School in Kanpur, then
-              joined IIIT Ranchi for B.Tech in CSE with Data Science and AI.
-              Getting into that track lands somewhere around the top 2 to 3
-              percent nationally. I graduate in 2027.
-            </p>
-            <p className="mt-5 leading-relaxed text-parchment-300/70">
-              I have built RAG pipelines on GCP, Solana airdrop apps, and
-              Dockerised services, and I have spent plenty of weekends in
-              hackathons. Outside of code: guitar, books, Japanese and French
-              on Duolingo, and some 3D design when I feel like it.
+              Day to day that looks like RAG pipelines on GCP, Solana airdrop
+              apps, Dockerised services, and a lot of hackathon weekends. Stack
+              is Python, TypeScript, Java, C++, and whatever the problem needs.
             </p>
             <ul className="mt-8 grid gap-2 font-mono text-sm text-parchment-300/70 sm:grid-cols-2">
               <li>› B.Tech CSE (DS and AI), IIIT Ranchi</li>
@@ -68,6 +62,10 @@ export default function About() {
         <Reveal className="mt-12 md:mt-16">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-amber-brand/70">
             Education
+          </p>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-parchment-300/60">
+            School in Kanpur, then IIIT Ranchi. Getting into CSE with Data
+            Science and AI here sits around the top 2 to 3 percent nationally.
           </p>
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {education.map((ed) => (
