@@ -35,6 +35,17 @@ export const socials = {
   medium: "https://medium.com/@gupta_harshal",
   substack: "https://substack.com/@guptaharshal",
   duolingo: "https://www.duolingo.com/profile/HarshalGup2",
+  monkeytype: "https://monkeytype.com/profile/Harsha1HG",
+};
+
+/** 10-word challenge visitors can try to beat */
+export const typingChallenge = {
+  words: 10,
+  targetWpm: 160,
+  targetAccuracy: 100,
+  modeLabel: "10 words",
+  username: "Harsha1HG",
+  profileUrl: "https://monkeytype.com/profile/Harsha1HG",
 };
 
 export const stats = [
@@ -190,6 +201,10 @@ export const passions = [
     line: "Electric and acoustic. I've played with a bunch of teams and on a bunch of stages. Try the interactive guitar.",
   },
   {
+    title: "Typing",
+    line: "160 WPM on a 10-word Monkeytype run. Challenge is below if you think you can beat it.",
+  },
+  {
     title: "Reading",
     line: "Mostly philosophy, psychology, and books about how money and markets actually work.",
   },
@@ -246,4 +261,5 @@ export const marqueeWords = [
   "Japanese",
   "French",
   "3D Design",
+  "160 WPM",
 ];

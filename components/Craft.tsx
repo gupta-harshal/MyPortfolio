@@ -4,6 +4,7 @@ import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import InteractiveGuitar from "./InteractiveGuitar";
 import MelodyPlayer from "./MelodyPlayer";
+import TypingChallenge from "./TypingChallenge";
 import { ambientWords, books, passions, socials } from "@/lib/data";
 
 export default function Craft() {
@@ -59,6 +60,14 @@ export default function Craft() {
                 <p className="mt-2 text-sm leading-relaxed text-parchment-300/70">
                   {p.line}
                 </p>
+                {p.title === "Typing" && (
+                  <a
+                    href="#typing"
+                    className="link-underline mt-4 w-fit font-mono text-[10px] uppercase tracking-[0.2em] text-amber-brand"
+                  >
+                    Try the challenge →
+                  </a>
+                )}
                 {p.title === "3D Design" && socials.instagram && (
                   <a
                     href={socials.instagram}
@@ -83,6 +92,10 @@ export default function Craft() {
             ))}
           </div>
         </div>
+
+        <Reveal className="mt-16 md:mt-20">
+          <TypingChallenge />
+        </Reveal>
 
         {/* Melody + bookshelf */}
         <div className="mt-16 grid items-start gap-12 md:mt-20 lg:grid-cols-[0.9fr_1.1fr]">
