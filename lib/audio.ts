@@ -1,5 +1,5 @@
 /**
- * Shared Web Audio piano helpers — used by floating notes,
+ * Shared Web Audio piano helpers used by floating notes,
  * melody player, and the bottom classical keyboard.
  */
 
@@ -70,7 +70,7 @@ export function playArpeggio(midis: number[], gap = 0.08, noteDur = 0.55) {
   });
 }
 
-/** Beethoven — Für Elise opening (public domain), simplified */
+/** Beethoven: Für Elise opening (public domain), simplified */
 export const FUR_ELISE: { midi: number; dur: number; gap?: number }[] = [
   { midi: 76, dur: 0.18 },
   { midi: 75, dur: 0.18 },

@@ -53,7 +53,7 @@ function makeFloater(id: number): Floater {
   };
 }
 
-/** Rising notes + kanji — only after the tech sections (#craft and below). */
+/** Rising notes + kanji: only after the tech sections (#craft and below). */
 export default function FloatingAmbience() {
   const [items, setItems] = useState<Floater[]>([]);
   const [bursts, setBursts] = useState<Burst[]>([]);

@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 
 type GuitarKind = "electric" | "acoustic";
 
-/** Standard guitar tuning E2–E4 */
+/** Standard guitar tuning E2 to E4 */
 const STRING_FREQS = [82.41, 110, 146.83, 196, 246.94, 329.63];
-/** String X positions inside the 0–220 viewBox */
+/** String X positions inside the 0-220 viewBox */
 const STRING_X = [86, 96.5, 107, 117.5, 128, 138.5];
 const STRING_KEYS = ["1", "2", "3", "4", "5", "6"];
 
@@ -144,7 +144,7 @@ export default function InteractiveGuitar() {
     [fireString, unlock]
   );
 
-  // Keyboard play: 1–6 pluck strings, Space strums
+  // Keyboard play: 1-6 pluck strings, Space strums
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const tag = (e.target as HTMLElement)?.tagName;

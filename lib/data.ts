@@ -9,19 +9,20 @@
 export const profile = {
   name: "Harshal Gupta",
   firstName: "Harshal",
-  role: "Software Engineer · ML & Systems",
-  tagline: "I build ML systems, Web3 apps, and full-stack software that actually ships.",
+  role: "Software Engineer, ML and Systems",
+  tagline:
+    "I build ML systems, Web3 apps, and full-stack software that actually ships.",
   location: "IIIT Ranchi, India",
   email: "guptharshal.hg@gmail.com",
   // Put your PDF at public/resume.pdf so this link downloads it
   resumeUrl: "/resume.pdf",
   blurb:
-    "B.Tech in Computer Science & Engineering (Data Science & AI) at IIIT Ranchi. Most of my time goes into RAG pipelines, Solana apps, and full-stack products. Docker, cloud, and competitive programming sit underneath all of that.",
+    "B.Tech in Computer Science and Engineering with Data Science and AI at IIIT Ranchi, class of 2027. Most of my time goes into RAG pipelines, Solana apps, and full-stack products. Docker, cloud, and competitive programming sit underneath all of that.",
   cgpa: "8.05",
 };
 
 /**
- * Social & profile links. Leave a value as "" to hide that icon.
+ * Social and profile links. Leave a value as "" to hide that icon.
  */
 export const socials = {
   github: "https://github.com/gupta-harshal",
@@ -47,6 +48,27 @@ export const typingChallenge = {
   username: "Harsha1HG",
   profileUrl: "https://monkeytype.com/profile/Harsha1HG",
 };
+
+export const education = [
+  {
+    school: "Swaraj India Public School, Kanpur",
+    program: "Class 10",
+    detail: "95.4%",
+    period: "2021",
+  },
+  {
+    school: "Swaraj India Public School, Kanpur",
+    program: "Class 12",
+    detail: "92.5%",
+    period: "2023",
+  },
+  {
+    school: "IIIT Ranchi",
+    program: "B.Tech CSE (Data Science and AI)",
+    detail: "CGPA 8.05 · graduating 2027",
+    period: "2023 to 2027",
+  },
+];
 
 export const stats = [
   { value: "1,400+", label: "Problems solved" },
@@ -202,7 +224,7 @@ export const passions = [
   },
   {
     title: "Typing",
-    line: "160 WPM on a 10-word Monkeytype run. Challenge is below if you think you can beat it.",
+    line: "I type a bit. Challenge below is 10 random words. Target to beat sits quietly at 160 WPM.",
   },
   {
     title: "Reading",

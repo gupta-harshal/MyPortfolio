@@ -204,39 +204,39 @@ export default function TypingChallenge() {
 
   return (
     <div id="typing" className="glass scroll-mt-28 overflow-hidden rounded-3xl p-6 md:p-8">
-      <div className="flex flex-wrap items-end justify-between gap-4">
+      <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-amber-brand/70">
-            Challenge · Monkeytype
+            Typing · 10 words
           </p>
           <h3 className="mt-2 font-display text-3xl text-parchment-100 md:text-4xl">
-            Beat {targetWpm} WPM.
+            Random words. Your turn.
           </h3>
           <p className="mt-2 max-w-md text-sm leading-relaxed text-parchment-300/65">
-            Same format as my best: {wordCount} words. My score is{" "}
-            <span className="text-amber-brand">{targetWpm} WPM</span> at 100%
-            accuracy. Click in and type.
+            Ten randomly generated words. I once hit{" "}
+            <span className="text-parchment-200">{targetWpm} WPM</span> on this
+            mode. See what you get.
           </p>
         </div>
-        <div className="text-right">
-          <div className="font-display text-4xl text-amber-brand md:text-5xl">
-            {targetWpm}
-          </div>
-          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-parchment-300/50">
-            my best · {wordCount} words
-          </div>
-        </div>
+        <a
+          href={profileUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full border border-amber-brand/40 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-amber-brand transition-all hover:bg-amber-brand hover:text-ink-950"
+        >
+          View Monkeytype profile
+        </a>
       </div>
 
-      <div className="mt-6 flex flex-wrap gap-6 border-y border-amber-brand/10 py-4 font-mono text-xs uppercase tracking-[0.18em] text-parchment-300/55">
+      <div className="mt-6 flex flex-wrap items-center gap-6 border-y border-amber-brand/10 py-4 font-mono text-xs uppercase tracking-[0.18em] text-parchment-300/55">
         <span>
           wpm{" "}
           <span className="text-parchment-100">
-            {result ? result.wpm : liveWpm || "—"}
+            {result ? result.wpm : liveWpm || "-"}
           </span>
         </span>
-        <span>
-          target <span className="text-amber-brand">{targetWpm}</span>
+        <span className="text-parchment-300/40">
+          to beat <span className="text-parchment-300/70">{targetWpm}</span>
         </span>
         <span>
           words{" "}
@@ -291,13 +291,16 @@ export default function TypingChallenge() {
         <div className="mt-6 rounded-2xl border border-amber-brand/15 bg-ink-900/50 px-5 py-5">
           <p className="font-display text-2xl text-parchment-100">
             {result.beat
-              ? `You got me. ${result.wpm} WPM.`
+              ? `Nice. ${result.wpm} WPM clears the mark.`
               : result.wpm === targetWpm
-              ? `Tie at ${result.wpm} WPM. Rematch?`
-              : `${result.wpm} WPM. Close, but ${targetWpm} still stands.`}
+              ? `Tied at ${result.wpm} WPM. One more round?`
+              : `${result.wpm} WPM this time.`}
           </p>
           <p className="mt-2 font-mono text-xs uppercase tracking-[0.15em] text-parchment-300/55">
             Accuracy {result.accuracy}%
+            {!result.beat && result.wpm !== targetWpm
+              ? ` · mark sits at ${targetWpm}`
+              : ""}
           </p>
         </div>
       )}
@@ -316,7 +319,7 @@ export default function TypingChallenge() {
           rel="noopener noreferrer"
           className="link-underline font-mono text-[10px] uppercase tracking-[0.2em] text-parchment-300/70 hover:text-amber-brand"
         >
-          Monkeytype · @{username} →
+          Full stats on Monkeytype (@{username}) →
         </a>
       </div>
     </div>

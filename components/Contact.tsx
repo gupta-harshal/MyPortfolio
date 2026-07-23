@@ -95,7 +95,7 @@ export default function Contact() {
             onSubmit={handleSubmit}
             className="glass flex flex-col gap-4 rounded-3xl p-7 md:p-9"
           >
-            {/* Honeypot — hidden from humans, catches bots */}
+            {/* Honeypot: hidden from humans, catches bots */}
             <input
               type="text"
               name="company"

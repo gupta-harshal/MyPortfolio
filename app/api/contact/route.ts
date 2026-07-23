@@ -7,7 +7,7 @@ type Payload = {
   name?: string;
   email?: string;
   message?: string;
-  // honeypot — bots fill this, humans never see it
+  // honeypot: bots fill this, humans never see it
   company?: string;
 };
 
