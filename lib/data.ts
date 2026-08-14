@@ -249,7 +249,7 @@ export const books = [
   { title: "The Psychology of Money", author: "Morgan Housel" },
   { title: "Ikigai", author: "García & Miralles" },
   { title: "Freakonomics", author: "Levitt & Dubner" },
-  { title: "Basics of Economics", author: "Introductory" },
+  { title: "Basics of Economics", author: "Thomas Sowell" },
 ];
 
 /** Soft ambient words (JP / FR / music) scattered on the Beyond section */
