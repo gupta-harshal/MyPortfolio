@@ -16,14 +16,14 @@ export default function About() {
           <Reveal>
             <p className="text-lg leading-relaxed text-parchment-300/80 md:text-xl">
               I am doing my B.Tech in CSE with Data Science and AI at IIIT
-              Ranchi. Competitive programming got me into clean problem solving.
-              The DS and AI track pulled me into ML, mostly RAG, language
-              models, and shipping those systems for real use.
+              Ranchi. Most of what I ship is full-stack: APIs, databases, cloud
+              deploys, and the frontend that sits on top. Competitive
+              programming keeps the problem solving sharp.
             </p>
             <p className="mt-5 leading-relaxed text-parchment-300/70">
-              Day to day that looks like RAG pipelines on GCP, Solana airdrop
-              apps, Dockerised services, and a lot of hackathon weekends. Stack
-              is Python, TypeScript, Java, C++, and whatever the problem needs.
+              On the side of that I have built RAG and ML pipelines, and a few
+              Web3 pieces when needed. Docker, GCP, and production-minded
+              workflows are part of how I like to work.
             </p>
             <ul className="mt-8 grid gap-2 font-mono text-sm text-parchment-300/70 sm:grid-cols-2">
               <li>› B.Tech CSE (DS and AI), IIIT Ranchi</li>

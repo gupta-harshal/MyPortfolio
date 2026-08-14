@@ -11,13 +11,13 @@ export const profile = {
   firstName: "Harshal",
   role: "Software Engineer, ML and Systems",
   tagline:
-    "Building ML systems, full-stack products, and Web3 apps out of IIIT Ranchi.",
+    "Full-stack engineer building production software, with ML and a bit of Web3 on the side.",
   location: "IIIT Ranchi, India",
   email: "guptharshal.hg@gmail.com",
   // Put your PDF at public/resume.pdf so this link downloads it
   resumeUrl: "/resume.pdf",
   blurb:
-    "B.Tech in Computer Science and Engineering with Data Science and AI at IIIT Ranchi (class of 2027). I work on RAG pipelines, Solana apps, and production software, with competitive programming, Docker, and cloud underneath.",
+    "B.Tech in Computer Science and Engineering with Data Science and AI at IIIT Ranchi (class of 2027). I spend most of my time on full-stack applications in production environments, and I also work with AI/ML systems and some Web3 when the problem calls for it.",
   cgpa: "8.05",
 };
 
@@ -107,7 +107,7 @@ export const achievements = [
     title: "Runner-Up, InternLay Hackathon",
     org: "IIIT Ranchi",
     detail:
-      "Designed a workflow automation system with Redis for async, multi-tenant execution queues.",
+      "Designed a medical assiatance chatbot with a retrieval-augmented generation (RAG) system for IIIT Ranchi's InternLay Hackathon.",
   },
   {
     title: "Contributor, GirlScript Summer of Code",
@@ -169,9 +169,9 @@ export const experience = [
 export const projects = [
   {
     title: "Personalized Language Learning Platform",
-    tags: ["SM-2", "Full-Stack", "Spaced Repetition"],
+    tags: ["Spaced Repetition", "Full-Stack", "Learning"],
     description:
-      "Language learning app built from scratch around the SuperMemo-2 (SM-2) algorithm. It figures out when you should review a card based on how memory tends to fade.",
+      "Language learning app built from scratch with spaced repetition for review scheduling. Full-stack product focused on when you should see a card again based on how well you remember it.",
     github: "https://github.com/gupta-harshal/LanguageLearning",
     live: "https://language-learning-g1md85x5g-harshal-guptas-projects.vercel.app/",
     accent: "amber",
