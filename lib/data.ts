@@ -71,7 +71,7 @@ export const education = [
 ];
 
 export const stats = [
-  { value: "1,400+", label: "Problems solved" },
+  { value: "1,500+", label: "Problems solved" },
   { value: "Specialist", label: "Codeforces" },
   { value: "Knight", label: "LeetCode" },
   { value: "3★", label: "CodeChef" },
@@ -125,10 +125,10 @@ export const achievements = [
     title: "Codeforces Specialist · LeetCode Knight · CodeChef 3★",
     org: "Competitive Programming",
     detail:
-      "1,400+ problems solved. Good practice for thinking through algorithms and system design when the clock is ticking.",
+      "1,500+ problems solved. Good practice for thinking through algorithms and system design when the clock is ticking.",
   },
   {
-    title: "1,800+ Day Streak on Duolingo",
+    title: "1,900+ Day Streak on Duolingo",
     org: "Japanese & French",
     detail:
       "Still showing up every day for Japanese and French. Same habit I try to keep with engineering work.",
@@ -232,7 +232,7 @@ export const passions = [
   },
   {
     title: "Languages",
-    line: "1,800+ day Duolingo streak for Japanese and French. Showing up every day adds up.",
+    line: "1,900+ day Duolingo streak for Japanese and French. Showing up every day adds up.",
   },
   {
     title: "3D Design",
@@ -250,6 +250,10 @@ export const books = [
   { title: "Ikigai", author: "García & Miralles" },
   { title: "Freakonomics", author: "Levitt & Dubner" },
   { title: "Basics of Economics", author: "Thomas Sowell" },
+  { title: "Thinking Fast and Slow", author: "Daniel Kahneman" },
+  { title: "Rich Dad,Poor Data", author: "Robert T. Kiyosaki" },
+  { title: "1984", author: "George Orwell" },
+  { title: "The Holy Vedas", author: "Swami Divyananda" }
 ];
 
 /** Soft ambient words (JP / FR / music) scattered on the Beyond section */
