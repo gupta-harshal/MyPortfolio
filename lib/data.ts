@@ -251,7 +251,7 @@ export const books = [
   { title: "Freakonomics", author: "Levitt & Dubner" },
   { title: "Basics of Economics", author: "Thomas Sowell" },
   { title: "Thinking Fast and Slow", author: "Daniel Kahneman" },
-  { title: "Rich Dad,Poor Data", author: "Robert T. Kiyosaki" },
+  { title: "Rich Dad,Poor Dad", author: "Robert T. Kiyosaki" },
   { title: "1984", author: "George Orwell" },
   { title: "The Holy Vedas", author: "Swami Divyananda" }
 ];
