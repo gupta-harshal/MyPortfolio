@@ -186,7 +186,7 @@ export const projects = [
     accent: "rose",
   },
   {
-    title: "https://github.com/gupta-harshal/self-supervised-amt",
+    title: "Self-Supervised Music Transcription",
     tags: ["Transformers", "Self-Supervised Learning", "Audio ML", "PyTorch"],
     description:
       "Sequence-to-sequence transformer that transcribes polyphonic piano audio to MIDI, pre-trained with self-supervision on unlabelled audio and fine-tuned on MAESTRO.",
