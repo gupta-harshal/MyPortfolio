@@ -183,6 +183,15 @@ export const projects = [
       "Role-based hospital management platform with an LLM chatbot backed by Gale Encyclopedia of Medicine embeddings. Came 2nd runner-up at the BITS Pilani Postman Hackathon.",
     github: "https://github.com/InternLay-HG/SMHackers",
     live: "https://sm-hackers.vercel.app/",
+    accent: "rose",
+  },
+  {
+    title: "https://github.com/gupta-harshal/self-supervised-amt",
+    tags: ["Transformers", "Self-Supervised Learning", "Audio ML", "PyTorch"],
+    description:
+      "Sequence-to-sequence transformer that transcribes polyphonic piano audio to MIDI, pre-trained with self-supervision on unlabelled audio and fine-tuned on MAESTRO.",
+    github: "https://github.com/gupta-harshal/self-supervised-amt",
+    live: "",
     accent: "sage",
   },
   {
